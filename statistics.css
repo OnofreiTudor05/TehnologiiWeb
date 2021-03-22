@@ -1,0 +1,17 @@
+#baralimbi {
+    display:grid;
+    grid-template-columns: 6fr 1fr 1fr;
+}
+
+#pagina {
+    display: grid;
+    grid-template-columns: 33% 67%;
+}
+
+#articolesigrafice{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+#baralatime{
+    width:80%;
+}

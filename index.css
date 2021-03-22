@@ -1,0 +1,32 @@
+#titlu {
+    color: rgb(226, 226, 4);
+    text-align:center;
+    display:grid;
+}
+
+#bara{
+    background-color: silver;
+    color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    justify-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    
+}
+
+.asezare {
+    display:grid;
+    color: gold;
+    grid-template-columns: 5% 90% 5%;
+}
+
+#tabelsigrafic {
+    display:grid;
+    grid-template-columns: 5% 45% 45% 5%;
+}
+
+
+
