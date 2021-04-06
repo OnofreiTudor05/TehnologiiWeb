@@ -1,0 +1,17 @@
+.fundalAdmin{
+    background-image: url('dba.png'); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+
+form{
+    font-size: 125%;
+    height: 100%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
