@@ -6,25 +6,25 @@
 }
 
 .descriere{
-    font-size: 25px;
+    font-size: 2vw;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: red;
     text-shadow:
-    -1px -1px 0 rgba(255, 255, 255, 0.7),
-    1px -1px 0 rgba(255, 255, 255, 0.7),
-    -1px 1px 0 rgba(255, 255, 255, 0.7),
-    1px 1px 0 rgba(255, 255, 255, 0.7);
+    -0.1vw -0.1vw 0 rgba(255, 255, 255, 0.7),
+    0.1vw -0.1vw 0 rgba(255, 255, 255, 0.7),
+    -0.1vw 0.1vw 0 rgba(255, 255, 255, 0.7),
+    0.1vw 0.1vw 0 rgba(255, 255, 255, 0.7);
     background-color:rgba(0, 0, 0, 0.7);
 }
 
 .contact{
-    font-size: 25px;
+    font-size: 2vw;
     color: red;
     text-shadow:
-    -1px -1px 0 rgba(255, 255, 255, 0.7),
-    1px -1px 0 rgba(255, 255, 255, 0.7),
-    -1px 1px 0 rgba(255, 255, 255, 0.7),
-    1px 1px 0 rgba(255, 255, 255, 0.7);
+    -0.1vw -0.1vw 0 rgba(255, 255, 255, 0.7),
+    0.1vw -0.1vw 0 rgba(255, 255, 255, 0.7),
+    -0.1vw 0.1vw 0 rgba(255, 255, 255, 0.7),
+    0.1vw 0.1vw 0 rgba(255, 255, 255, 0.7);
     background-color:rgba(0, 0, 0, 0.7); 
 }
 
@@ -46,20 +46,20 @@
 }
 
 .Button {
-	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	box-shadow: 0vw 0vw 0vw 0.2vw #9fb4f2;
 	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
 	background-color:#7892c2;
-	border-radius:10px;
-	border:1px solid #4e6096;
+	border-radius:1vw;
+	border:0.1vw solid #4e6096;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
+	font-size:1.5vw;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:0.3vw 1.2vw;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
+	text-shadow:0vw 0.1vw 0vw #283966;
 }
 .Button:hover {
 	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
@@ -68,4 +68,12 @@
 .Button:active {
 	position:relative;
 	top:1px;
+}
+
+body{
+    background-image: url("Poze/Cloud.jpg");
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
 }

@@ -13,17 +13,17 @@
 }
 
 .articol{
-	font-size: 20px;
+	font-size: 1.5vw;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: black;
     text-align: center;
     border:darkblue;
     border-style: solid;
-    margin-bottom: 20px;
+    margin-bottom: 1.5vw;
 }
 
 .grafic{
-	margin-bottom: 20px;
+	margin-bottom: 1.5vw;
 	border:rgb(128, 128, 255);
 	border-style: solid;
 	display: block;
@@ -40,16 +40,16 @@
 .butonSee {
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
 	background-color:#c62d1f;
-	border-radius:18px;
+	border-radius:2vw;
 	border:1px solid #d02718;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:17px;
-	padding:7px 25px;
+	font-size:2vw;
+	padding:0.3vw 1.2vw;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
+	text-shadow:0vw 0.1vw 0vw #810e05;
 }
 .butonSee:hover {
 	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
@@ -74,20 +74,20 @@
 }
 
 .Button {
-	box-shadow:inset 0px 1px 0px 0px #efdcfb;
+	box-shadow:inset 0vw 0.1vw 0vw 0vw #efdcfb;
 	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
 	background-color:#dfbdfa;
-	border-radius:6px;
-	border:1px solid #c584f3;
+	border-radius:0.6vw;
+	border:0.1vw solid #c584f3;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
+	font-size:1.5vw;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:0.3vw 1.2vw;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #9752cc;
+	text-shadow:0vw 0.1vw 0vw #9752cc;
 }
 .Button:hover {
 	background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
@@ -96,4 +96,7 @@
 .Button:active {
 	position:relative;
 	top:1px;
+}
+section{
+	font-size: 1vw;
 }
