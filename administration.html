@@ -10,13 +10,44 @@
 
 <body style="background-color:#35e7ac;">
 
-    <p style="text-align: center;"> <input id=baralatime type="text" placeholder="Search..."> <button class="butonSee1"> Add Article </button> </p>
+    <p style="text-align: center;">  <p> <input id="baralatime" type="text" placeholder="Search..."> 
+        <a href="#" class="butonSee">Search</a> <button class="butonSee1"> Add Article </button> 
+    </p> </p>
 
     <main id="pagina">
 
-        <section>
-            Filtre
-        </section>
+        <div id="filters" class="filters" style="background-color: #663399;">
+            <div class="filterNames">
+                <div class="cooltext"><label for="startYear">From year:</label></div>
+                <div class="cooltext"><label for="stopYear">Until year:</label></div>
+                <div class="cooltext"><label for="severity">Severity:</label></div>
+                <div class="cooltext"><label for="victims">Victim count:</label></div>
+                <div class="cooltext"><label for="political">Political implications:</label></div>
+            </div>
+            <div class="filterBars">
+                <div>
+                    <input type="range" id="startYear" name="startYear" min="1970" max="2017" value="1970" oninput="this.nextElementSibling.value = this.value">
+                    <output>1970</output>
+                  </div>
+                  <div>
+                    <input type="range" id="stopYear" name="stopYear" min="1970" max="2017" value="2017" oninput="this.nextElementSibling.value = this.value">
+                    <output>2017</output>
+                  </div>  
+                  <div>
+                    <input type="range" id="severity" name="severity" min="0" max="10" value="8" oninput="this.nextElementSibling.value = this.value">
+                    <output>8</output>
+                  </div>  
+                  <div>
+                    <input type="range" id="victims" name="victims" min="0" max="10000" value="100" oninput="this.nextElementSibling.value = this.value">
+                    <output>100</output>
+                  </div>  
+                  <div>
+                    <input type="radio" name="political" value="yes"/> Yes
+                    <input type="radio" name="political" value="no" /> No
+                    <input type="radio" name="political" value="both" checked/> Both   
+                  </div>                    
+            </div>
+          </div>
 
         <aside>
 

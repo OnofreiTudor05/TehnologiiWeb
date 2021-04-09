@@ -12,6 +12,34 @@
     width:30%;
 }
 
+.filters {
+	display: flex;
+  }
+  
+  #filters {
+	  height: 8vw;
+	  width: 28vw;
+	  position: relative;
+  }
+  
+  .filterNames {
+	flex: 30%;
+	  border-radius:6px;
+	  color:#35e7ac;
+	  font-family:Arial;
+	  font-size:16px;
+	  font-weight:bold;
+  }
+  
+  .filterBars {
+	  flex: 30%;
+	  border-radius:6px;
+	  color:#35e7ac;
+	  font-family:Arial;
+	  font-size:16px;
+	  font-weight:bold;
+  }
+
 .articol{
     background-color: rgba(255, 185, 100, 1);
 	font-size: 1.5vw;
