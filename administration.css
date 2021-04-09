@@ -84,42 +84,13 @@
 	top:0.1vw;
 }
 
+@media screen and (max-width:800px){
+	.articol {
+		display: block;
+		font-size: 4vw;
+	}
 
-#bara{
-    background-color: #663399;
-    color: red;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
-    justify-items: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    
-}
-
-.Button {
-	box-shadow:inset 0vw 0.1vw 0vw 0vw #efdcfb;
-	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-	background-color:#dfbdfa;
-	border-radius:0.6vw;
-	border:0.1vw solid #c584f3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:1.5vw;
-	font-weight:bold;
-	padding:0.3vw 1.2vw;
-	text-decoration:none;
-	text-shadow:0vw 0.1vw 0vw #9752cc;
-}
-.Button:hover {
-	background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-	background-color:#bc80ea;
-}
-
-.Button:active {
-	position:relative;
-	top:0.1vw;
+	.butonSee {
+		font-size: 5vw;
+	}
 }

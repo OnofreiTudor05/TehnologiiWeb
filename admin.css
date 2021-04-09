@@ -77,3 +77,35 @@ form input[type="SUBMIT"]:hover{
     left: 0;
     bottom: 0;
 }
+
+@media screen and (max-width: 800px){
+    .container{
+        font-size: 8vw;
+    }
+
+    form{
+        font-size: 8vw;
+    }
+
+    form input[type="submit"]{
+        font-size: 8vw;
+    }
+
+    form input[type="text"]{
+        font-size: 6vw;
+    }
+
+    form input[type="submit"]:hover{
+        font-size: 8vw;
+    }
+
+    form input[type="text"]:hover{
+        font-size: 6vw;
+    }
+
+    form label{
+        font-size: 8vw;
+    }
+
+
+}

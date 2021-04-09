@@ -67,7 +67,7 @@
 }
 .Button:active {
 	position:relative;
-	top:1px;
+	top:0.1vw;
 }
 
 body{
@@ -76,4 +76,23 @@ body{
     background-repeat: no-repeat; 
     background-size: cover; 
     background-attachment: fixed;
+}
+
+@media screen and (max-width:800px) {
+    .imagine{
+        width: 75%;
+    }
+
+    .descriere{
+        font-size: 4.5vw;
+    }
+
+    .contact{
+        font-size: 4vw
+    }
+
+    .Button{
+        font-size: 4vw;
+    }
+
 }
