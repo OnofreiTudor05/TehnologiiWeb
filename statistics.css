@@ -128,3 +128,21 @@
 section{
 	font-size: 1vw;
 }
+
+@media screen and (max-width:800px){
+	.Button {
+		font-size: 4vw;
+	}
+
+	.articol {
+		font-size: 2vw;
+	}
+
+	.butonSee {
+		font-size: 3.5vw;
+	}
+
+	.grafic {
+		width: 100%;
+	}
+}

@@ -113,6 +113,7 @@
 }
 
 @media screen and (max-width:800px){
+
 	.articol {
 		display: block;
 		font-size: 4vw;
@@ -120,5 +121,9 @@
 
 	.butonSee {
 		font-size: 5vw;
+	}
+
+	.butonSee1 {
+		font-size: 4vw;
 	}
 }
