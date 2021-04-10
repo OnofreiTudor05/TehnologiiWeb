@@ -2,6 +2,7 @@
 <html lang="en">
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="map.css" rel="stylesheet">
         <meta charset="utf-8">
         <title>Map</title>
@@ -23,44 +24,61 @@
             <div></div>
         </nav>
     
-        <p> <input id="baralatime" type="text" placeholder="Search..."> 
-            <a href="#" class="butonSee">Search</a>
-        </p>
+
     
         <main id="pagina">
-    
-                <div id="filters" class="filters" style="background-color: #663399;">
-                    <div class="filterNames">
-                        <div class="cooltext"><label for="startYear">From year:</label></div>
-                        <div class="cooltext"><label for="stopYear">Until year:</label></div>
-                        <div class="cooltext"><label for="severity">Severity:</label></div>
-                        <div class="cooltext"><label for="victims">Victim count:</label></div>
-                        <div class="cooltext"><label for="political">Political implications:</label></div>
+                <form method="POST" id="searchform" action="#">
+                  <div class="search"> 
+                    <input id="baralatime" type="text" placeholder="Search..."> 
+                    <input type="submit" class="butonSee" value="Search">
+                  </div>
+                  <div class="filters">
+                    <div class="filterline">
+                      <div class="filterlabel">
+                        <label for="startYear">From year:</label>
+                      </div>
+                      <div class="filteritem">
+                        <input type="number" id="startYear" name="startYear" min="1970" max="2017" value="1970">
+                      </div>
                     </div>
-                    <div class="filterBars">
-                        <div>
-                            <input type="range" id="startYear" name="startYear" min="1970" max="2017" value="1970" oninput="this.nextElementSibling.value = this.value">
-                            <output>1970</output>
-                          </div>
-                          <div>
-                            <input type="range" id="stopYear" name="stopYear" min="1970" max="2017" value="2017" oninput="this.nextElementSibling.value = this.value">
-                            <output>2017</output>
-                          </div>  
-                          <div>
-                            <input type="range" id="severity" name="severity" min="0" max="10" value="8" oninput="this.nextElementSibling.value = this.value">
-                            <output>8</output>
-                          </div>  
-                          <div>
-                            <input type="range" id="victims" name="victims" min="0" max="10000" value="100" oninput="this.nextElementSibling.value = this.value">
-                            <output>100</output>
-                          </div>  
-                          <div>
-                            <input type="radio" name="political" value="yes"/> Yes
-                            <input type="radio" name="political" value="no" /> No
-                            <input type="radio" name="political" value="both" checked/> Both   
-                          </div>                    
+                    <div class="filterline">
+                      <div class="filterlabel">
+                        <label for="startYear">Until year:</label>
+                      </div>
+                      <div class="filteritem">
+                        <input type="number" id="stopYear" name="stopYear" min="1970" max="2017" value="2017">
+                      </div>
+                    </div>
+                    <div class="filterline">
+                      <div class="filterlabel">
+                        <label for="startYear">Minimum severity:</label>
+                      </div>
+                      <div class="filteritem">
+                        <input type="number" id="severity" name="severity" min="0" max="10" value="8">
+                      </div>
+                    </div>
+                    <div class="filterline">
+                      <div class="filterlabel">
+                        <label for="startYear">Maximum victim count:</label>
+                      </div>
+                      <div class="filteritem">
+                        <input type="number" id="victims" name="victims" min="0" max="10000" value="100">
+                      </div>
+                    </div>
+                    <div class="filterline">
+                      <div class="filterlabel">
+                        <label for="startYear">Political implications:</label>
+                      </div>
+                      <div class="filteritem">
+                        <select id="political" name="political">
+                          <option value="Either">Either</option>
+                          <option value="Yes">Political only</option>
+                          <option value="No">Non-political</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
+                  </form>
     
             <aside>
                    

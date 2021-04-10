@@ -1,44 +1,15 @@
-#baralimbi {
-    display:grid;
-    grid-template-columns: 6fr 1fr 1fr;
-}
-
 #pagina {
     display: grid;
     grid-template-columns: 33% 67%;
+	grid-gap: 1vw;
 }
 
 #baralatime{
-    width:30%;
+	font-size: 1vw;
+    width:30vw;
+	margin-right: 1vw;
 }
 
-.filters {
-	display: flex;
-  }
-  
-  #filters {
-	  height: 8vw;
-	  width: 28vw;
-	  position: relative;
-  }
-  
-  .filterNames {
-	flex: 30%;
-	  border-radius:6px;
-	  color:#35e7ac;
-	  font-family:Arial;
-	  font-size:16px;
-	  font-weight:bold;
-  }
-  
-  .filterBars {
-	  flex: 30%;
-	  border-radius:6px;
-	  color:#35e7ac;
-	  font-family:Arial;
-	  font-size:16px;
-	  font-weight:bold;
-  }
 
 .articol{
     background-color: rgba(255, 185, 100, 1);
@@ -59,11 +30,6 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
-}
-
-.steag{
-    height: 70%;
-    width: 70%;
 }
 
 .butonSee {
@@ -112,8 +78,66 @@
 	top:0.1vw;
 }
 
-@media screen and (max-width:800px){
+.search {
+	display: flex; 
+	flex-direction: row;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+  }
 
+  
+input[type=number], select{
+	font-size: 1vw;
+	width: 100%;
+	padding: 1vw;
+	border: 0.1vw;
+	border-radius: 0.4vw;
+	box-sizing: border-box;
+	resize: vertical;
+  }
+  
+  label {
+	padding: 1vw 1vw 1vw 0;
+	display: inline-block;
+  }
+  
+  .filters {
+	font-size: 1vw;
+	border-radius: 0.6vw;
+	background-color: #663399;
+	padding: 2vw;
+  }
+  
+  .filterlabel {
+	float: left;
+	color:#35e7ac;
+	font-family:Arial;
+	font-weight:bold;
+	width: 25%;
+	margin-top: 0.1vw;
+  }
+  
+  .filteritem {
+	float: left;
+	color:#35e7ac;
+	font-family:Arial;
+	font-weight:bold;
+	width: 75%;
+	margin-top: 0.1vw;
+  }
+  
+  .filterline:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+
+
+@media screen and (max-width:800px){
+	.filterlabel, .filteritem{
+		width: 100%;
+		margin-top: 0;
+	  }
 	.articol {
 		display: block;
 		font-size: 4vw;
