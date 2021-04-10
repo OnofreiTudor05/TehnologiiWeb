@@ -1,0 +1,99 @@
+#asezare{
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    justify-content: center;
+    text-align: center;
+}
+
+.descriere{
+    font-size: 2vw;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: red;
+    text-shadow:
+    -0.05vw -0.05vw 0 rgba(255, 255, 255, 0.7),
+    0.05vw -0.05vw 0 rgba(255, 255, 255, 0.7),
+    -0.05vw 0.05vw 0 rgba(255, 255, 255, 0.7),
+    0.05vw 0.05vw 0 rgba(255, 255, 255, 0.7);
+    background-color:rgba(120,146,194, 0.85); 
+}
+
+.contact{
+    font-size: 2vw;
+    color: red;
+    text-shadow:
+    -0.05vw -0.05vw 0 rgba(255, 255, 255, 0.7),
+    0.05vw -0.05vw 0 rgba(255, 255, 255, 0.7),
+    -0.05vw 0.05vw 0 rgba(255, 255, 255, 0.7),
+    0.05vw 0.05vw 0 rgba(255, 255, 255, 0.7);
+    background-color:rgba(120,146,194, 0.85); 
+}
+
+.imagine{
+    width: 20%;
+}
+
+#bara{
+    background-color: rgb(3, 189, 189);
+    color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    justify-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    
+}
+
+.Button {
+	box-shadow: 0vw 0vw 0vw 0.2vw #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:1vw;
+	border:0.1vw solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:1.5vw;
+	font-weight:bold;
+	padding:0.3vw 1.2vw;
+	text-decoration:none;
+	text-shadow:0vw 0.1vw 0vw #283966;
+}
+.Button:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.Button:active {
+	position:relative;
+	top:0.1vw;
+}
+
+body{
+    background-image: url("Poze/Cloud.jpg");
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+@media screen and (max-width:800px) {
+    .imagine{
+        width: 75%;
+    }
+
+    .descriere{
+        font-size: 4.5vw;
+    }
+
+    .contact{
+        font-size: 4.5vw
+    }
+
+    .Button{
+        font-size: 4vw;
+    }
+
+
+}
