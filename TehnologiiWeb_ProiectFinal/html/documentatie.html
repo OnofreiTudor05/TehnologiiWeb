@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Documentatie</title>
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1> Software Requirements Specification For TeW (Terrorism Web Visualizer) </h1>
+    </header>
+    <div role="contentinfo">
+      <section typeof="sa:AuthorsList">
+        <h2> Authors </h2>
+        <ul>
+          <li typeof="sa:ContributorRole" property="schema:author">
+            <span typeof="schema:Person">
+              <meta property="schema:givenName" content="Cristin">
+              <meta property="schema:additionalName" content="Marian">
+              <meta property="schema:familyName" content="Blajut">
+              <span property="schema:name"> Blajut Cristin-Marian </span>
+            </span>
+            <ul>
+              <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                <a href="mailto:blajut.cristin12@gmail.com" property="schema:email">blajut.cristin12@gmail.com</a>
+              </li>
+            </ul>
+          </li>
+
+          <li typeof="sa:ContributorRole" property="schema:author">
+            <span typeof="schema:Person">
+              <meta property="schema:givenName" content="Tudor">
+              <meta property="schema:additionalName" content="Cristian">
+              <meta property="schema:familyName" content="Onofrei">
+              <span property="schema:name"> Onofrei Tudor-Cristian </span>
+            </span>
+            <ul>
+              <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                <a href="mailto:onofrei.tudorcristian@gmail.com" property="schema:email">onofrei.tudorcristian@gmail.com</a>
+              </li>
+            </ul>
+          </li>
+
+          <li typeof="sa:ContributorRole" property="schema:author">
+            <span typeof="schema:Person">
+              <meta property="schema:givenName" content="Dominic">
+              <meta property="schema:additionalName" content="Eduard">
+              <meta property="schema:familyName" content="Roca">
+              <span property="schema:name"> Roca Dominic-Eduard </span>
+            </span>
+            <ul>
+              <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                <a href="mailto:rocadominic@gmail.com" property="schema:email">rocadominic@gmail.com</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section typeof="sa:Affiliations">
+        <h2>Affiliations</h2>
+        <ul>
+          <li id="sa">
+            <span typeof="schema:Organization" resource="https://uaic.ro/">
+              <span property="schema:name">uaic.ro</span>,
+              <span property="schema:parentOrganization">
+                <span typeof="schema:Organization">
+                  <span property="schema:name">Alexandru Ioan Cuza University</span>
+                  —
+                  <span property="schema:location" typeof="schema:Place">
+                    <span property="schema:address" typeof="schema:PostalAddress">
+                      <span property="schema:addressLocality">Iasi</span>,
+                      <span property="schema:addressRegion">Iasi</span>,
+                      <span property="schema:addressCountry">Romania</span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <section>
+      <h1>Table of Contents</h1>
+      <ul>
+        <li>
+          <a href="#introduction"> 1. Introduction </a>
+          <ul>
+            <li> <a href="#purpose"> 1.1 Purpose </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#overall_description"> 2. Overall Description </a>
+          <ul>
+            <li> <a href="#product_perspective"> 2.1 Product Perspective </a> </li>
+            <li> <a href="#product_functions"> 2.2 Product Functions </a> </li>
+            <li> <a href="#user_classes_and_characteristics"> 2.3 User Classes and Characteristics </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#external_interface_requirements"> 3. External Interface Requirements </a>
+          <ul>
+            <li> <a href="#user_interfaces"> 3.1 User Interfaces </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#system_features"> 4. System Features </a>
+          <ul>
+            <li> <a href="#administration_of_database"> 4.1 Administration of database via the administration page </a>
+            </li>
+            <li> <a href="#searching_and_filtering"> 4.2 Searching and filtering results from the database </a> </li>
+            <li> <a href="#creating_and_downloading"> 4.3 Creating and downloading maps and charts </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#contribution"> 5. Contributions </a>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <section>
+      <h1 id="introduction"> 1. Introduction </h1>
+      <section>
+        <h2 id="purpose"> 1.1 Purpose </h2>
+        <p> Terrorism Web Visualiser(TeW) is a tool designed to allow flexible visualisation of global terrorism related
+          data. </p>
+      </section>
+    </section>
+
+    <section>
+      <h1 id="overall_description"> 2. Overall Description </h1>
+      <section>
+        <h2 id="product_perspective"> 2.1 Product Perspective </h2>
+        <p> TeW is a new, self-contained product, that is not based on any previous projects. </p>
+      </section>
+      <section>
+        <h2 id="product_functions"> 2.2 Product Functions</h2>
+        <p> The web application is designed to contain a large, flexible database of terrorist attacks, that can be
+          easily
+          updated through the administration UI.
+          The statistics function of the application uses said data, along with various filters for the attacks, and
+          dynamically generates statistics and graphs regarding the given data.
+          The map function is used to carthographically locate events for better visualisation, by also using the
+          database
+          along with various user given filters. </p>
+      </section>
+      <section>
+        <h2 id="user_classes_and_characteristics"> 2.3 User Classes and Characteristics </h2>
+        <p> This web application provides a visualiser for terrorism around the world; linked to a database containing
+          over 18k
+          registered attacks, this application can be used in order to easily explore this database.
+          The application can be accesed by two types of users: administrator and client.
+          The client can be anyone who has a particular interest in terrorism at global scale, someone who wants to
+          easilly
+          explore the database and possesess a medium-level of understanding into what terrorism is.
+          The administrator is a priviledged user; this kind of user can access an administration page in order to
+          change the
+          content shown; he can edit or delete the articles and also he can add new articles. This kind of user needs to
+          have
+          high-level knowledge regarding the consequences of terrorism, a great sense and capability of sorting the
+          attacks by
+          certain criteria. </p>
+      </section>
+    </section>
+
+    <section>
+      <h1 id="external_interface_requirements"> 3. External Interface Requirements </h1>
+      <section>
+        <h2 id="user_interfaces"> 3.1 User Interfaces </h2>
+
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/index.png" alt="Admin image">
+          <figcaption> Index page </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/admin.png" alt="Admin image">
+          <figcaption> Administrator login page </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/administration.png" alt="Admin image">
+          <figcaption> Administrator edit page </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/contact.png" alt="Admin image">
+          <figcaption> Contact page </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/statistics.png" alt="Admin image">
+          <figcaption> Statistics page </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img src="../Poze/PozeDocumentatie/map.png" alt="Admin image">
+          <figcaption> Map page </figcaption>
+        </figure>
+
+        <p> The non-priviledged user will be able to see and interact with 4 pages (Map, Home, Statistics, Contact),
+          through
+          which can easily navigate using the navigation bar. If they press the button of the same page they are in, it
+          will act
+          like a back-to-the-top button. Administrators will be able to access 2 other pages (Admin, Administration),
+          one used for
+          logging in and the other to manage the aplication. Each page has its own purpose: </p>
+        <section>
+          <h3> 3.1.1 Admin </h3>
+
+          <p>Admin page contains a form where the user is asked to input a username and a password. These credentials
+            will be
+            sent to backend, to be verified. The purpose of the page is to redirect admins to the administration page,
+            after they are
+            logged in. </p>
+        </section>
+        <section>
+          <h3> 3.1.2 Administration </h3>
+          <p>Administration page can be accessed after the admin introduces correct credentials in the Admin form. It
+            contains a
+            button with the option to add a new article, a searchbar, along with various filters for looking up articles
+            on the
+            left side of the page, and the articles resulted after the search on the right side of the page with a short
+            description. The articles can be edited, deleted or visualised using 1 of the 3 buttons below them. The
+            purpose of
+            the page is to be used by the administrator to add, delete or edit articles. </p>
+        </section>
+        <section>
+          <h3> 3.1.3 Contact </h3>
+          <p>Contact page contains a navigation bar with 4 buttons that redirect the user to any of the 4 pages avaible
+            to them
+            (Map, Home, Statistics, Contact), contact information, a short description and a photo of each participant
+            to the
+            project. The purpose of the page is to gather information about the project creators. </p>
+        </section>
+        <section>
+          <h3> 3.1.4 Home </h3>
+          <p>Home page is the main page of the project, the page the users will first see. The page contains a
+            navigation bar
+            with 4 buttons that redirect the user to any of the 4 pages avaible to them (Map, Home, Statistics,
+            Contact), a
+            signifiant banner, important information that will be added from the backend and will replace the actual
+            ones (graphics, stats,
+            map). It contains information about terrorism to inform the users about the theme of the project. The
+            purpose of the
+            page is to greet the user. </p>
+        </section>
+        <section>
+          <h3> 3.1.5 Map </h3>
+          <p> Map page contains a map where the terorist atacks will be highlighted depending on the user-controlled
+            filters. The
+            page contains a navigation bar with 4 buttons that redirect the user to any of the 4 pages avaible to them
+            (Map,
+            Home, Statistics, Contact), a search bar, along with filters, where information will be introduced and then
+            sent to
+            backend, to locate and pinpoint terorist atacks on the map. The purpose of the page is to find and display
+            the atacks the
+            user is interested in. </p>
+        </section>
+        <section>
+          <h3> 3.1.6 Statistics </h3>
+          <p> Statistics page contains a navigation bar with 4 buttons that redirect the user to any of the 4 pages
+            avaible to
+            them (Map, Home, Statistics, Contact), a searchbar, filters where the user will introduce information that
+            will be sent
+            to backend, necesarry to create the statistics, a short description of the articles about the atacks
+            involved in the
+            statistic with a button that allows the user to see the entire article. Below the articles the graphic and
+            statistics will be generated. The purpose of the page is to create the graphics and statistics the user is
+            interested in, with
+            some additional relevant data. </p>
+        </section>
+      </section>
+    </section>
+
+
+    <section>
+      <h1 id="system_features"> 4. System Features </h1>
+
+      <section>
+        <h2 id="administration_of_database"> 4.1 Administration of database via the administration page </h2>
+        <section>
+          <h3> 4.1.1 Description and Priority </h3>
+          <p> High priority: This feature is responsible for making active changes to the database while the webserver
+            is active.
+            The database is also responsible for generating statistics, charts and maps. </p>
+        </section>
+
+        <section>
+          <h3> 4.1.2 Stimulus/Response Sequences </h3>
+          <p> The administrator logs in via the admin page and is presented with the admin panel. There, he can manage
+            the
+            database via the "Add new" button to make insertions, or via the "Edit" and "Delete" buttons corresponding
+            to each article,
+            to update or delete. </p>
+        </section>
+        <section>
+          <h3> 4.1.3 Functional Requirements </h3>
+          <p> The user is required to input valid credentials in order to access the admin panel. The database must be
+            up and
+            running in order for the queries to take effect. </p>
+
+        </section>
+      </section>
+      <section>
+        <h2 id="searching_and_filtering"> 4.2 Searching and filtering results from the database </h2>
+        <section>
+          <h3> 4.2.1 Description and Priority </h3>
+
+          <p>Medium priority: This feature is responsible for querying the database, in order to select articles
+            relevant to the
+            user-inputted filters.</p>
+        </section>
+        <section>
+          <h3> 4.2.2 Stimulus/Response Sequences </h3>
+          <p> The user inputs keywords relevant to the articles they wish to discover, and performs further filtering
+            via the
+            filter form. The selected results will be shown on the page. </p>
+        </section>
+        <section>
+          <h3> 4.2.3 Functional Requirements </h3>
+          <p>The database must be up and running in order for the queries to take effect. </p>
+        </section>
+      </section>
+      <section>
+        <h2 id="creating_and_downloading"> 4.3 Creating and downloading maps and charts </h2>
+        <section>
+          <h3> 4.3.1 Description and Priority </h3>
+
+          <p> High priority: This feature is responsible for generating various maps and charts based on the search
+            filters, along
+            with exporting the generated charts and maps for further processing. </p>
+        </section>
+        <section>
+          <h3> 4.3.2 Stimulus/Response Sequences </h3>
+          <p>The generation process is done via the same search field as the one in feature 4.2. The user is able to
+            export the
+            generated figures in various formats via a download button and use them for later processing. </p>
+        </section>
+        <section>
+          <h3> 4.3.3 Functional Requirements </h3>
+          <p>The database must be up and running in order for the queries to take effect. </p>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <h1 id="contributions"> Contributions </h1>
+      <ul>
+        <li> admin.html + admin.css: Onofrei Tudor-Cristian 2A3 </li>
+        <li> administration.html + administration.css: Onofrei Tudor-Cristian 2A3, Roca Dominic-Eduard 2A3 (filtre)
+        </li>
+        <li> contact.html + contact.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
+        <li> index.html + index.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
+        <li> map.html + map.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Roca Dominic-Eduard 2A3 </li>
+        <li> statistics.html + statistics.css: Roca Dominic-Eduard 2A3 (filtre), Blajut Cristin-Marian 2A3(articole)
+        </li>
+      </ul>
+    </section>
+  </article>
+</body>
+
+</html>
