@@ -1,8 +1,8 @@
 .fundalAdmin{
     background-position: center center;
-    background-image: url('dba.png'); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
+    background-image: url("Poze/dba.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     text-align: center;
 }
@@ -13,7 +13,6 @@ form{
     border-radius: 0.25vw;
     border-color: rgba(0, 100, 255, 1);
     padding: 2vw;
-    box-sizing: box-shadow;
     background-color: rgba(20, 20, 100, 0.75);
     font-size: 1.75vw;
     text-align: center;
@@ -27,7 +26,6 @@ form input[type="TEXT"]{
     margin-bottom: 2.5vw;
     font-size: 1.25vw;
     text-align: center;
-    border-style: round;
     border-width: 0.25vw;
     border-radius: 0.25vw;
     border-color: rgba(0, 255, 0, 0.6);
@@ -37,7 +35,6 @@ form input[type="TEXT"]:hover{
     margin-bottom: 2.5vw;
     font-size: 1.25vw;
     text-align: center;
-    border-style: round;
     border-width: 0.25vw;
     border-radius: 0.25vw;
     border-color: rgba(0, 255, 0, 1);
@@ -48,7 +45,6 @@ form input[type="SUBMIT"]{
     font-size: 1.25vw;
     background-color: rgba(0, 100, 255, 1);
     color: rgba(0, 255, 255, 1);
-    border-style: round;
     border-radius: 0.35vw;
     border-color: rgba(255, 255, 255, 1);
 }
@@ -57,7 +53,6 @@ form input[type="SUBMIT"]:hover{
     font-size: 1.25vw;
     background-color: rgba(0, 100, 255, 0.5);
     color: rgba(0, 255, 255, 0.5);
-    border-style: round;
     border-radius: 0.35vw;
     border-color: rgba(255, 255, 255, 1);
 }
