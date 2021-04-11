@@ -1,2 +1,2 @@
 # TehnologiiWeb
-Destinat proiectului din cadrul disciplinei TW
+Proiectul se afla in folderul Proiect Final.
