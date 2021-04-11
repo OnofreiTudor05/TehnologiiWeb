@@ -7,13 +7,12 @@
 
 #bara{
     background-color: silver;
-    color: red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
     justify-items: center;
     position: sticky;
-    top: 0;
+	top:0;
     width: 100%;
     
 }

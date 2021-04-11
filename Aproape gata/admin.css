@@ -1,8 +1,8 @@
 .fundalAdmin{
     background-position: center center;
-    background-image: url("Poze/dba.png"); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
+    background-image: url("Poze/dba.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     text-align: center;
 }

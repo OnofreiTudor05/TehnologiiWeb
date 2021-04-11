@@ -6,7 +6,7 @@
 
 #pagina {
 	display: grid;
-	grid-template-columns: 33vw 67vw;
+	grid-template-columns: 33% 67%;
 	grid-gap: 1vw;
 }
 
@@ -46,7 +46,6 @@
 
 #bara{
     background-color: #663399;
-    color: red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
