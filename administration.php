@@ -349,7 +349,7 @@ if ($conn->connect_error) {
 
   if (count($conditions) > 0) {
     $sql = $query;
-    $sql .= . implode(',', $conditions);
+    $sql .= implode(',', $conditions);
     $sql .= ")";
   }
 

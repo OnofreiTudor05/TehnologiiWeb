@@ -1,7 +1,7 @@
 <?php
 
-if(isset($_POST['search']))
-{
+//if(isset($_POST['search']))
+//{
     $iyear = $_POST['iyear'];
     $country_txt = $_POST['country_txt'];
     $region_txt = $_POST['region_txt'];
@@ -20,8 +20,12 @@ if(isset($_POST['search']))
 
     $conditions = array();
 
-    if(! empty($iyear)) {
-      $conditions[] = "iyear='$iyear'";
+    if(! empty($iyearin)) {
+      $conditions[] = "iyear>='$iyearin'";
+    }
+
+    if(! empty($iyearsf)) {
+      $conditions[] = "iyear<='$iyearsf'";
     }
 
     if(! empty($country_txt)) {
@@ -64,8 +68,12 @@ if(isset($_POST['search']))
       $conditions[] = "weapsubtype1_txt='$weapsubtype1_txt'";
     }
 
-    if(! empty($nkill)) {
-      $conditions[] = "nkill='$nkill'";
+    if(! empty($nkillin)) {
+      $conditions[] = "nkill>='$nkillin'";
+    }
+
+    if(! empty($nkillsf)) {
+      $conditions[] = "nkill<='$nkillsf'";
     }
 
     if(! empty($propextent_txt)) {
@@ -76,48 +84,52 @@ if(isset($_POST['search']))
       $conditions[] = "ransom='$ransom'";
     }
 
-    if(! empty($ransomamt)) {
-      $conditions[] = "ransomamt='$ransomamt'";
+    if(! empty($ransomamtin)) {
+      $conditions[] = "ransomamt>='$ransomamtin'";
     }
 
-    if($valueToSearch != "") // daca cauta cu searchbar
-    {
-        $query = "SELECT * FROM bazadate WHERE titlu LIKE '%".$valueToSearch."%' AND ";
+    if(! empty($ransomamtsf)) {
+      $conditions[] = "ransomamt<='$ransomamtsf'";
     }
-    else
-    {
-        $query = "SELECT * FROM bazadate WHERE";
-    }
+
+    //if($valueToSearch != "") // daca cauta cu searchbar
+    //{
+     //   $query = "SELECT * FROM terorism WHERE titlu LIKE '%".$valueToSearch."%' AND ";
+    //}
+    //else
+    //{
+        $query = "SELECT * FROM terorism WHERE ";
+    //}
 
 
     //daca avem cautari in filtre
     if (count($conditions) > 0) {
       $sql = $query;
-      $sql .= . implode(' AND ', $conditions);
+      $sql .= implode(' AND ', $conditions);
     }
     //daca nu avem conditii dar avem searchbar
     if(count($conditions) == 0 && $valueToSearch != "")
     {
-        $sql = "SELECT * FROM bazadate WHERE titlu LIKE '%".$valueToSearch."%'"
+        $sql = "SELECT * FROM terorism WHERE titlu LIKE '%".$valueToSearch."%' ";
     }
     //daca nu avem nimic
     if(count($conditions) == 0 && $valueToSearch == "")
     {
-        $sql = "SELECT * FROM bazadate"
+        $sql = "SELECT * FROM terorism ";
     }
 
-    $result = mysql_query($sql);
+    $connect = mysqli_connect("localhost", "root", "", "bazadatetw");
+    $result = mysqli_query($connect, $sql);
+    printf("Liniile selectate sunt: ");
 
-    return $result;
-}
+    while($row = mysqli_fetch_assoc($result))
+    {
+      echo "<p>" ." ". $row['iyear'] ." ". $row['country_txt'] ." ". $row['region_txt'] ." ". $row['provstate'] ." ". $row['city'] ." ". $row['attacktype1_txt'] ." ". $row['targtype1_txt'] ." ". $row['targsubtype1_txt'] ." ". $row['natlty1_txt'] ." ". $row['weaptype1_txt'] ." ". $row['weapsubtype1_txt'] ." ". $row['nkill'] ." ". $row['propextent_txt'] ." ". $row['ransom'] ." ". $row['ransomamt'] . "</p> <br>" ;
+    }
 
-//conectare
-function filterTable($query)
-{
-    $connect = mysqli_connect("localhost", "root", "", "test_db");
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
-}
+    printf($result->num_rows);
+
+//}
 
 ?>
 
