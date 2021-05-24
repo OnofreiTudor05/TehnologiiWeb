@@ -2,21 +2,23 @@
 
 //if(isset($_POST['search']))
 //{
-    $iyear = $_POST['iyear'];
+    $iyearin = $_POST['iyearin'];
+    $iyearsf = $_POST['iyearsf'];
     $country_txt = $_POST['country_txt'];
     $region_txt = $_POST['region_txt'];
     $provstate = $_POST['provstate'];
-    $city = $_POST['city'];
     $attacktype1_txt = $_POST['attacktype1_txt'];
     $targtype1_txt = $_POST['targtype1_txt'];
     $targsubtype1_txt = $_POST['targsubtype1_txt'];
     $natlty1_txt = $_POST['natlty1_txt'];
     $weaptype1_txt = $_POST['weaptype1_txt'];
     $weapsubtype1_txt = $_POST['weapsubtype1_txt'];
-    $nkill = $_POST['nkill'];
+    $nkillin = $_POST['nkillin'];
+    $nkillsf = $_POST['nkillsf'];
     $propextent_txt = $_POST['propextent_txt'];
     $ransom = $_POST['ransom'];
-    $ransomamt = $_POST['ransomamt'];
+    $ransomamtin = $_POST['ransomamtin'];
+    $ransomamtsf = $_POST['ransomamtsf'];
 
     $conditions = array();
 
@@ -38,10 +40,6 @@
 
     if(! empty($provstate)) {
       $conditions[] = "provstate='$provstate'";
-    }
-
-    if(! empty($city)) {
-      $conditions[] = "city='$city'";
     }
 
     if(! empty($attacktype1_txt)) {
@@ -120,11 +118,14 @@
 
     $connect = mysqli_connect("localhost", "root", "", "bazadatetw");
     $result = mysqli_query($connect, $sql);
+
+    echo $sql;
+
     printf("Liniile selectate sunt: ");
 
     while($row = mysqli_fetch_assoc($result))
     {
-      echo "<p>" ." ". $row['iyear'] ." ". $row['country_txt'] ." ". $row['region_txt'] ." ". $row['provstate'] ." ". $row['city'] ." ". $row['attacktype1_txt'] ." ". $row['targtype1_txt'] ." ". $row['targsubtype1_txt'] ." ". $row['natlty1_txt'] ." ". $row['weaptype1_txt'] ." ". $row['weapsubtype1_txt'] ." ". $row['nkill'] ." ". $row['propextent_txt'] ." ". $row['ransom'] ." ". $row['ransomamt'] . "</p> <br>" ;
+      echo "<p>" ." ". $row['iyear'] ." ". $row['country_txt'] ." ". $row['region_txt'] ." ". $row['provstate'] ." ". $row['attacktype1_txt'] ." ". $row['targtype1_txt'] ." ". $row['targsubtype1_txt'] ." ". $row['natlty1_txt'] ." ". $row['weaptype1_txt'] ." ". $row['weapsubtype1_txt'] ." ". $row['nkill'] ." ". $row['propextent_txt'] ." ". $row['ransom'] ." ". $row['ransomamt'] . "</p> <br>" ;
     }
 
     printf($result->num_rows);
