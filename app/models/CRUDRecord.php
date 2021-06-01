@@ -11,49 +11,49 @@ class CRUDRecord
     {
         $data = json_decode($data, true);
         $conditions = array();
-        
+
         $conditions[] = strval($data["eventid"] ?? "0");
         $conditions[] = strval($data["iyear"] ?? "0");
         $conditions[] = strval($data["imonth"] ?? "0");
         $conditions[] = strval($data["iday"] ?? "0");
         $conditions[] = strval($data["country"] ?? "0");
-        $conditions[] = strval("'" . ($data["country_txt"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["country_txt"] ?? "null") . "'");
         $conditions[] = strval($data["region"] ?? "0");
-        $conditions[] = strval("'" . ($data["region_txt"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["provstate"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["city"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["region_txt"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["provstate"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["city"] ?? "null") . "'");
         $conditions[] = strval($data["latitude"] ?? "0");
         $conditions[] = strval($data["longitude"] ?? "0");
-        $conditions[] = strval("'" . ($data["location"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["summary"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["location"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["summary"] ?? "null") . "'");
         $conditions[] = strval($data["success"] ?? "null");
         $conditions[] = strval($data["suicide"] ?? "null");
         $conditions[] = strval($data["attacktype1"] ?? "0");
-        $conditions[] = strval("'" . ($data["attacktype1_txt"] ?? "null") . "'" );
-        $conditions[] = strval($data["targtype1"] ?? "0"); 
-        $conditions[] = strval("'" . ($data["targtype1_txt"] ?? "null") . "'" ); 
-        $conditions[] = strval($data["targsubtype1"] ?? "0"); 
-        $conditions[] = strval("'" . ($data["targsubtype1_txt"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["corp1"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["target1"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["attacktype1_txt"] ?? "null") . "'");
+        $conditions[] = strval($data["targtype1"] ?? "0");
+        $conditions[] = strval("'" . ($data["targtype1_txt"] ?? "null") . "'");
+        $conditions[] = strval($data["targsubtype1"] ?? "0");
+        $conditions[] = strval("'" . ($data["targsubtype1_txt"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["corp1"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["target1"] ?? "null") . "'");
         $conditions[] = strval($data["natlty1"] ?? "0");
-        $conditions[] = strval("'" . ($data["natlty1_txt"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["gname"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["natlty1_txt"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["gname"] ?? "null") . "'");
         $conditions[] = strval($data["weaptype1"] ?? "0");
-        $conditions[] = strval("'" . ($data["weaptype1_txt"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["weaptype1_txt"] ?? "null") . "'");
         $conditions[] = strval($data["weapsubtype1"] ?? "0");
-        $conditions[] = strval("'" . ($data["weapsubtype1_txt"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["weapdetail"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["nkill"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["nhostkid"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["propextent"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["propextent_txt"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["weapsubtype1_txt"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["weapdetail"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["nkill"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["nhostkid"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["propextent"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["propextent_txt"] ?? "null") . "'");
         $conditions[] = strval($data["ransom"] ?? "null");
-        $conditions[] = strval("'" . ($data["ransomamt"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["addnotes"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["scite1"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["scite2"] ?? "null") . "'" );
-        $conditions[] = strval("'" . ($data["scite3"] ?? "null") . "'" );
+        $conditions[] = strval("'" . ($data["ransomamt"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["addnotes"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["scite1"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["scite2"] ?? "null") . "'");
+        $conditions[] = strval("'" . ($data["scite3"] ?? "null") . "'");
 
         $query = "INSERT INTO terrorism (eventid, iyear, imonth, iday, country, country_txt, region, region_txt, provstate, city, latitude, longitude, location, summary, success, suicide, attacktype1, attacktype1_txt, targtype1, targtype1_txt, targsubtype1, targsubtype1_txt, corp1, target1, natlty1, natlty1_txt, gname, weaptype1, weaptype1_txt, weapsubtype1 ,weapsubtype1_txt, weapdetail, nkill, nhostkid, propextent, propextent_txt, ransom, ransomamt, addnotes, scite1, scite2, scite3) 
   VALUES (";
@@ -66,9 +66,9 @@ class CRUDRecord
         }
 
         if ($this->conexiune->query($sql) === TRUE) {
-            return "New record created successfully";
+            return true;
         } else {
-            return "Error: " . $sql . "<br>" . $this->conexiune->error;
+            return false;
         }
     }
 
@@ -264,17 +264,16 @@ class CRUDRecord
 
         if (!is_null($data["eventid"] ?? null)) {
             $eventid = strval($data["eventid"]);
-        }
-        else{
-          return false;
+        } else {
+            return false;
         }
 
         $sql = "DELETE FROM terrorism WHERE eventid = $eventid";
 
         if ($this->conexiune->query($sql) === TRUE) {
-            echo "Record deleted successfully!";
+            return true;
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conexiune->error;
+            return false;
         }
     }
 }

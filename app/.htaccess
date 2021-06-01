@@ -1,1 +1,3 @@
 Options -Indexes
+RewriteEngine On
+RewriteRule ^api/.+$    api/restTerro.php    [NC,L]
