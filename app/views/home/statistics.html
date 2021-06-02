@@ -27,10 +27,10 @@
   </nav>
 
   <main id="pagina">
-    <form action="FiltreFinal.php" method="POST">
+    <form action="Test.php" method="GET">
 
       <div class="search">
-        <input id="baralatime" type="text" placeholder="Search...">
+        <input id="baralatime" type="text" name="searchsummary" placeholder="Search...">
         <input type="submit" class="butonSee" value="Search">
       </div>
 
@@ -41,7 +41,7 @@
             <label for="iyearin">An inceput:</label>
           </div>
           <div class="filteritem">
-            <input type="number" id="iyearin" name="iyearin" value="0">
+            <input type="number" id="iyearin" name="iyearin">
           </div>
         </div>
 
@@ -50,7 +50,7 @@
             <label for="iyearsf">An sfarsit:</label>
           </div>
           <div class="filteritem">
-            <input type="number" id="iyearsf" name="iyearsf" value="0">
+            <input type="number" id="iyearsf" name="iyearsf">
           </div>
         </div>
 
