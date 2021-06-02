@@ -72,6 +72,113 @@ class CRUDRecord
         }
     }
 
+    public function cautaRecord($data)
+    {
+        $data = json_decode($data, true);
+        $conditions = array();
+
+        if (($data["iyearin"] ?? null) !="") {
+            $conditions[] = strval("iyear>=" . $data["iyearin"]);
+        }
+
+        if (($data["iyearsf"] ?? null) !="") {
+            $conditions[] = strval("iyear<=" . $data["iyearsf"]);
+        }
+
+        if (($data["country_txt"] ?? null) !="" ) {
+            $conditions[] = strval("country_txt='" . $data["country_txt"]. "'");
+        }
+
+        if (($data["region_txt"] ?? null) !="") {
+            $conditions[] = strval("region_txt='" . $data["region_txt"]. "'");
+        }
+
+        if (($data["provstate"]  ?? null) !="") {
+            $conditions[] = strval("provstate='" . $data["provstate"]. "'");
+        }
+
+        if (($data["attacktype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("attacktype1_txt='" . $data["attacktype1_txt"]. "'");
+        }
+
+        if (($data["targtype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("targtype1_txt='" . $data["targtype1_txt"]. "'");
+        }
+
+        if (($data["targsubtype1_txt"] ?? null) !="") {
+            $conditions[] = strval("targsubtype1_txt='" . $data["targsubtype1_txt"]. "'");
+        }
+
+        if (($data["natlty1_txt"]  ?? null) !="") {
+            $conditions[] = strval("natlty1_txt='" . $data["natlty1_txt"]. "'");
+        }
+
+        if (($data["weaptype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("weaptype1_txt='" . $data["weaptype1_txt"]. "'");
+        }
+
+        if (($data["weapsubtype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("weapsubtype1_txt='" . $data["weapsubtype1_txt"]. "'");
+        }
+
+        if (($data["nkillin"]  ?? null) !="") {
+            $conditions[] = strval("nkill>=" . $data["nkillin"]);
+        }
+
+        if (($data["nkillsf"]  ?? null) !="") {
+            $conditions[] = strval("nkill<=" . $data["nkillsf"]);
+        }
+
+        if (($data["propextent_txt"]  ?? null) !="") {
+            $conditions[] = strval("propextent_txt='" . $data["propextent_txt"]. "'");
+        }
+
+        if (($data["ransom"]  ?? null) !="") {
+            $conditions[] = strval("ransom='" . $data["ransom"]. "'");
+        }
+
+        if (($data["ransomamtin"]  ?? null) !="") {
+            $conditions[] = strval("ransomamt>=" . $data["ransomamtin"]);
+        }
+
+        if (($data["ransomamtsf"]  ?? null) !="") {
+            $conditions[] = strval("ransomamt<=" . $data["ransomamtsf"]);
+        }
+
+        if (($data["searchsummary"]  ?? null) !="") // daca cauta cu searchbar si presupun ca am filtre
+        {
+            $query = "SELECT * FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
+        } else {
+            $query = "SELECT * FROM terrorism WHERE ";
+        }
+
+        //daca avem cautari in filtre
+        if (count($conditions) > 0) {
+            $sql = $query;
+            $sql .= implode(' AND ', $conditions);
+        }
+
+        //daca nu avem conditii dar avem searchbar
+        if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) !="") {
+            $sql = "SELECT * FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' ";
+        }
+        //daca nu avem nimic
+        if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) =="") {
+            $sql = "SELECT * FROM terrorism ";
+        }
+
+        $connect = mysqli_connect("localhost", "root", "", "globalterrorism");
+        $result = mysqli_query($connect, $sql);
+        $content = "";
+
+        while (($row = mysqli_fetch_assoc($result))!==NULL) {
+            $content .= "<p>" . " " . $row['iyear'] . " " . $row['country_txt'] . " " . $row['region_txt'] . " " . $row['provstate'] . " " . $row['attacktype1_txt'] . " " . $row['targtype1_txt'] . " " . $row['targsubtype1_txt'] . " " . $row['natlty1_txt'] . " " . $row['weaptype1_txt'] . " " . $row['weapsubtype1_txt'] . " " . $row['nkill'] . " " . $row['propextent_txt'] . " " . $row['ransom'] . " " . $row['ransomamt'] . "</p> <br>";
+        }
+
+        return $content;
+
+    }
+
     public function updateRecord($data)
     {
         $data = json_decode($data, true);
