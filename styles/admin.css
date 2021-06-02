@@ -40,6 +40,24 @@ form input[type="TEXT"]:hover{
     border-color: rgba(0, 255, 0, 1);
 }
 
+form input[type="password"]{
+    margin-bottom: 2.5vw;
+    font-size: 1.25vw;
+    text-align: center;
+    border-width: 0.25vw;
+    border-radius: 0.25vw;
+    border-color: rgba(0, 255, 0, 0.6);
+}
+
+form input[type="password"]:hover{
+    margin-bottom: 2.5vw;
+    font-size: 1.25vw;
+    text-align: center;
+    border-width: 0.25vw;
+    border-radius: 0.25vw;
+    border-color: rgba(0, 255, 0, 1);
+}
+
 
 form input[type="SUBMIT"]{
     font-size: 1.25vw;
@@ -90,11 +108,19 @@ form input[type="SUBMIT"]:hover{
         font-size: 6vw;
     }
 
+    form input[type="password"]{
+        font-size: 6vw;
+    }
+
     form input[type="submit"]:hover{
         font-size: 8vw;
     }
 
     form input[type="text"]:hover{
+        font-size: 6vw;
+    }
+
+    form input[type="password"]:hover{
         font-size: 6vw;
     }
 
