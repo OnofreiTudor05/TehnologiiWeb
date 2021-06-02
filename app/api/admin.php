@@ -10,12 +10,31 @@ include_once "../models/ManagerConexiune.php";
 function adaugaRecord($request)
 {
     $model = new CRUDRecord();
-    $payload = $request['payload'];
-    $payload = json_encode($payload);    
-    $response = $model->adaugaRecord($payload);
+    $data = $request['data'];
+    $data = json_encode($data);    
+    $response = $model->adaugaRecord($data);
     if ($response) {
         Response::responseCode(200);
         Response::content(['response' => 'Record created successfully!']);
+        exit;
+    }
+
+    Response::responseCode(400);
+    Response::content(['response' => 'invalid data']);
+}
+
+function updateRecord($request)
+{
+    $model = new CRUDRecord();
+    $data = $request['data'];
+    $id = $request['params']['eventid'];
+    $data['eventid'] = $id;
+    $data = json_encode($data);    
+
+    $response = $model->updateRecord($data);
+    if ($response) {
+        Response::responseCode(200);
+        Response::content(['response' => 'Record updated successfully!']);
         exit;
     }
 
@@ -29,10 +48,10 @@ function stergeRecord($request)
     $model = new CRUDRecord();
     $id = $request['params']['eventid'];
 
-    $args = array();
-    $args['eventid'] = $id;
-    $args = json_encode($args);
-    $response = $model->stergeRecord($args);
+    $data = array();
+    $data['eventid'] = $id;
+    $data = json_encode($data);
+    $response = $model->stergeRecord($data);
     if ($response) {
         Response::responseCode(200);
         Response::content(['response' => 'Record deleted successfully!']);

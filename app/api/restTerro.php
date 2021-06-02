@@ -8,17 +8,26 @@ header("Access-Control-Allow-Headers: *");
 $apiRoutes =  [
     [
         "method" => "DELETE",
-        "route" => "deleteattack/:eventid",
+        "route" => "attack/:eventid",
         "permissions" => "loginCheckOut",
         "function" => "stergeRecord"
     ],
     [
         "method" => "POST",
-        "route" => "insertattack",
+        "route" => "attack",
         "permissions" => "loginCheckOut",
         "function" => "adaugaRecord"
+    ],
+    [
+        "method" => "PUT",
+        "route" => "attack/:eventid",
+        "permissions" => "loginCheckOut",
+        "function" => "updateRecord"
     ]
 ];
+
+
+$GLOBALS['goodRouteBadMethod'] = 0;
 
 foreach ($apiRoutes as $route) {
 
@@ -26,7 +35,12 @@ foreach ($apiRoutes as $route) {
         exit;
     }
 }
-//exista path dar nu metoda => 405 method not allowed, else 404
+if ($GLOBALS['goodRouteBadMethod'] === 1) {
+    Response::responseCode(405);
+    Response::content(['response' => 'method not allowed']);
+    exit;
+}
+
 Response::responseCode(404);
 Response::content(['response' => 'invalid url']);
 
@@ -35,11 +49,17 @@ function doRequest($route)
     $url = $_SERVER['REQUEST_URI'];
     $method = $_SERVER['REQUEST_METHOD'];
 
+    $currentRoute = explode("api/", $url)[1];
+    $wantedRoute = explode("/", $route['route']);
+    if (explode("/", $currentRoute)[0] !== $wantedRoute[0]) {
+        return false;
+    }
     if ($method !== $route['method']) {
+        $GLOBALS['goodRouteBadMethod'] = 1;
         return false;
     }
 
-    $currentRoute = explode("api/", $url)[1];
+    $GLOBALS['goodRouteBadMethod'] = 0;
 
     if ($currentRoute !== "") {
         $params = [];
@@ -47,49 +67,46 @@ function doRequest($route)
         $parts = explode('/', $route['route']);
         $routeParts = explode("/", $currentRoute);
 
-        // Params
-        $index = 1;
-        foreach ($parts as $p) {
-            if ($p[0] === ':') {
-                $params[substr($p, 1)] = $routeParts[$index];
-                $index++;
+
+        if (isset($parts[1])) {
+            if ($parts[1][0] === ':') {
+                $params[substr($parts[1], 1)] = $routeParts[1];
             }
         }
-        // Query
-        if (strpos($url, '?')) {
-            $queryString = explode('?', $url)[1];
-            $queryParts = explode('&', $queryString);
 
-            foreach ($queryParts as $part) {
-                if (strpos($part, '=')) {
-                    $query[explode('=', $part)[0]] = explode('=', $part)[1];
+        if (strpos($url, '?')) {
+            $queryAll = explode('?', $url)[1];
+            $queryArgs = explode('&', $queryAll);
+
+            foreach ($queryArgs as $arg) {
+                if (strpos($arg, '=')) {
+                    $query[explode('=', $arg)[0]] = explode('=', $arg)[1];
                 }
             }
         }
 
-        // Payload
-        $payload = file_get_contents('php://input');
-        if (strlen($payload)) {
+        $data = file_get_contents('php://input');
+        if (strlen($data)) {
 
-            $payload = json_decode($payload, true);
+            $data = json_decode($data, true);
         } else {
-            $payload = NULL;
+            $data = NULL;
         }
 
         if (isset($route['permissions'])) {
-            $didPass = call_user_func($route['permissions'], [
+            $check = call_user_func($route['permissions'], [
                 "params" => $params,
                 "query" => $query,
-                "payload" => $payload
+                "data" => $data
             ]);
-            if (!$didPass) {
-                exit();
+            if (!$check) {
+                exit;
             }
         }
         call_user_func($route['function'], [
             "params" => $params,
             "query" => $query,
-            "payload" => $payload
+            "data" => $data
         ]);
 
         return true;

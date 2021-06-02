@@ -252,9 +252,9 @@ class CRUDRecord
         }
 
         if ($this->conexiune->query($sql) === TRUE) {
-            echo "Record updated successfully";
+            return true;
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conexiune->error;
+            return false;
         }
     }
 
