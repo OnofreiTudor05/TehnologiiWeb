@@ -1,4 +1,4 @@
-<?php
+<?php 
     
     include_once "../app/models/ManagerConexiune.php";
     include_once "../app/models/CRUDRecord.php";
@@ -29,13 +29,12 @@
     $payload["ransomamtsf"] = trim($_GET['ransomamtsf']);
     */
 
-    $payload["searchsummary"]='rebels';
     $payload["iyearin"]=20;
     $payload["iyearsf"]=9000;
-    $payload["country_txt"]='Mexico';
+    $payload["country_txt"]="Mexico";
     
 
     $payload = json_encode($payload);
     $model = new CRUDRecord();
-    echo $model->cautaRecord($payload);
+    echo json_encode($model->cautaRecord($payload));
 ?>
