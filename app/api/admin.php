@@ -2,10 +2,8 @@
 
 require_once "./response.php";
 require_once "../models/CRUDRecord.php";
-include_once "../models/ManagerConexiune.php";
-
-
-
+require_once "../models/ManagerConexiune.php";
+require_once "../models/admin.php";
 
 function adaugaRecord($request)
 {
@@ -60,5 +58,22 @@ function stergeRecord($request)
 
     Response::responseCode(400);
     Response::content(['response' => 'invalid attack id']);
+}
+
+function login($request)
+{
+    $model = new Admin();
+    $data = $request['data'];
+    $data=json_encode($data);
+
+    $response = $model->login($data);
+    if ($response) {
+        Response::responseCode(200);
+        Response::content(['response' => 'Login succesfully!']);
+        exit;
+    }
+
+    Response::responseCode(400);
+    Response::content(['response' => 'invalid login']);
 }
 

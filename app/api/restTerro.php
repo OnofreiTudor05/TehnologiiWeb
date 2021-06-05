@@ -1,6 +1,7 @@
 <?php
 require_once "./response.php";
 require_once "./admin.php";
+require_once "./filters.php";
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -23,6 +24,21 @@ $apiRoutes =  [
         "route" => "attack/:eventid",
         "permissions" => "loginCheckOut",
         "function" => "updateRecord"
+    ],
+    [
+        "method" => "GET",
+        "route" => "attack/:eventid",
+        "function" => "cautaDupaId"
+    ],
+    [
+        "method" => "GET",
+        "route" => "attack",
+        "function" => "cautaRecord"
+    ],
+    [
+        "method" => "POST",
+        "route" => "login",
+        "function" => "login"
     ]
 ];
 
@@ -50,6 +66,7 @@ function doRequest($route)
     $method = $_SERVER['REQUEST_METHOD'];
 
     $currentRoute = explode("api/", $url)[1];
+    $currentRoute = explode("?", $currentRoute)[0];
     $wantedRoute = explode("/", $route['route']);
     if (explode("/", $currentRoute)[0] !== $wantedRoute[0]) {
         return false;
@@ -67,10 +84,13 @@ function doRequest($route)
         $parts = explode('/', $route['route']);
         $routeParts = explode("/", $currentRoute);
 
-
         if (isset($parts[1])) {
-            if ($parts[1][0] === ':') {
-                $params[substr($parts[1], 1)] = $routeParts[1];
+            if (isset($routeParts[1])) {
+                if ($parts[1][0] === ':') {
+                    $params[substr($parts[1], 1)] = $routeParts[1];
+                }
+            } else {
+                return false;
             }
         }
 
