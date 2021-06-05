@@ -1,4 +1,4 @@
-<?php
+<?php 
 class CRUDRecord
 {
     public function __construct()
@@ -70,6 +70,19 @@ class CRUDRecord
         } else {
             return false;
         }
+    }
+
+    public function cautaDupaId($data)
+    {
+        $data = json_decode($data, true);
+        if(!is_numeric($data["eventid"]))
+        {
+            return false;
+        }
+        $sql = "SELECT * FROM terrorism where eventid =" .  $data["eventid"];
+        $result = mysqli_query($this->conexiune, $sql);
+
+        return mysqli_fetch_assoc($result);
     }
 
     public function cautaRecord($data)
@@ -167,16 +180,9 @@ class CRUDRecord
             $sql = "SELECT * FROM terrorism ";
         }
 
-        $connect = mysqli_connect("localhost", "root", "", "globalterrorism");
-        $result = mysqli_query($connect, $sql);
-        $content = "";
-
-        while (($row = mysqli_fetch_assoc($result))!==NULL) {
-            $content .= "<p>" . " " . $row['iyear'] . " " . $row['country_txt'] . " " . $row['region_txt'] . " " . $row['provstate'] . " " . $row['attacktype1_txt'] . " " . $row['targtype1_txt'] . " " . $row['targsubtype1_txt'] . " " . $row['natlty1_txt'] . " " . $row['weaptype1_txt'] . " " . $row['weapsubtype1_txt'] . " " . $row['nkill'] . " " . $row['propextent_txt'] . " " . $row['ransom'] . " " . $row['ransomamt'] . "</p> <br>";
-        }
-
+        $result = mysqli_query($this->conexiune, $sql);
+        $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
-
     }
 
     public function updateRecord($data)
