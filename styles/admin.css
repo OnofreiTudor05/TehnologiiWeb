@@ -22,6 +22,10 @@ form label{
     color: rgba(0, 255, 255, 1);
 }
 
+#errorMsg{
+    color: rgba(255, 0, 0, 1);
+}
+
 form input[type="TEXT"]{
     margin-bottom: 2.5vw;
     font-size: 1.25vw;

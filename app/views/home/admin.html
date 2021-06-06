@@ -11,14 +11,16 @@
 
 <body class="fundalAdmin">
     <div class="container">
-        <form action="Test.php" method="POST">
+        <form action="admin" method="POST">
             <label for="numeUtilizator"> Username: </label> <br>
             <input type="text" id="numeUtilizator" name="numeUtilizator" placeholder="Your username"><br>
             <label for="password"> Password: </label> <br>
             <input type="password" id="password" name="password" placeholder="Password"><br>
             <input type="submit" id="submitData" value="Connect"> <br>
+            <div id="errorMsg"></div>
         </form>
     </div>
+    <script src="../app/ajax/login.js"></script>
 </body>
 
 </html>

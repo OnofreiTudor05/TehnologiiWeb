@@ -9,7 +9,7 @@ function adaugaRecord($request)
 {
     $model = new CRUDRecord();
     $data = $request['data'];
-    $data = json_encode($data);    
+    $data = json_encode($data);
     $response = $model->adaugaRecord($data);
     if ($response) {
         Response::responseCode(200);
@@ -27,7 +27,7 @@ function updateRecord($request)
     $data = $request['data'];
     $id = $request['params']['eventid'];
     $data['eventid'] = $id;
-    $data = json_encode($data);    
+    $data = json_encode($data);
 
     $response = $model->updateRecord($data);
     if ($response) {
@@ -64,16 +64,15 @@ function login($request)
 {
     $model = new Admin();
     $data = $request['data'];
-    $data=json_encode($data);
+    $data = json_encode($data);
 
     $response = $model->login($data);
     if ($response) {
         Response::responseCode(200);
-        Response::content(['response' => 'Login succesfully!']);
+        Response::content(['response' => 'Login successfully!']);
         exit;
     }
 
     Response::responseCode(400);
-    Response::content(['response' => 'invalid login']);
+    Response::content(['response' => 'Invalid login']);
 }
-

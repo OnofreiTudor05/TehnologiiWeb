@@ -22,9 +22,6 @@ class App
     {
 
         $url = $this->parseazaURL();
-
-        //$this->console_log($url);
-
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
@@ -38,7 +35,6 @@ class App
             $uri .= $_SERVER['HTTP_HOST'];
             header('Location: ' . $uri . '/TehnologiiWeb/public/home');
         }
-        //$this->console_log($this->controller);
         require_once '../app/controllers/' . $this->controller . '.php';
 
 
