@@ -258,6 +258,10 @@ class CRUDRecord
             $conditions[] = strval("ransomamt<=" . $data["ransomamtsf"]);
         }
 
+        if (($data["tipdategrafic"]  ?? null) =="") {
+            $data["tipdategrafic"] = "country_txt";
+        }
+
         if (($data["searchsummary"]  ?? null) !="") // daca cauta cu searchbar si presupun ca am filtre
         {
             $query = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
@@ -281,6 +285,107 @@ class CRUDRecord
         //daca nu avem nimic
         if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) =="") {
             $sql = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism GROUP BY ". $data["tipdategrafic"] . " ORDER BY numarAtacuri DESC";
+        }
+
+        $result = mysqli_query($this->conexiune, $sql);
+        $content = $result->fetch_all(MYSQLI_ASSOC);
+        return $content;
+    }
+
+    public function cautaDateMap($data)
+    {
+        $data = json_decode($data, true);
+        $conditions = array();
+
+        if (($data["iyearin"] ?? null) !="") {
+            $conditions[] = strval("iyear>=" . $data["iyearin"]);
+        }
+
+        if (($data["iyearsf"] ?? null) !="") {
+            $conditions[] = strval("iyear<=" . $data["iyearsf"]);
+        }
+
+        if (($data["country_txt"] ?? null) !="" ) {
+            $conditions[] = strval("country_txt='" . $data["country_txt"]. "'");
+        }
+
+        if (($data["region_txt"] ?? null) !="") {
+            $conditions[] = strval("region_txt='" . $data["region_txt"]. "'");
+        }
+
+        if (($data["provstate"]  ?? null) !="") {
+            $conditions[] = strval("provstate='" . $data["provstate"]. "'");
+        }
+
+        if (($data["attacktype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("attacktype1_txt='" . $data["attacktype1_txt"]. "'");
+        }
+
+        if (($data["targtype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("targtype1_txt='" . $data["targtype1_txt"]. "'");
+        }
+
+        if (($data["targsubtype1_txt"] ?? null) !="") {
+            $conditions[] = strval("targsubtype1_txt='" . $data["targsubtype1_txt"]. "'");
+        }
+
+        if (($data["natlty1_txt"]  ?? null) !="") {
+            $conditions[] = strval("natlty1_txt='" . $data["natlty1_txt"]. "'");
+        }
+
+        if (($data["weaptype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("weaptype1_txt='" . $data["weaptype1_txt"]. "'");
+        }
+
+        if (($data["weapsubtype1_txt"]  ?? null) !="") {
+            $conditions[] = strval("weapsubtype1_txt='" . $data["weapsubtype1_txt"]. "'");
+        }
+
+        if (($data["nkillin"]  ?? null) !="") {
+            $conditions[] = strval("nkill>=" . $data["nkillin"]);
+        }
+
+        if (($data["nkillsf"]  ?? null) !="") {
+            $conditions[] = strval("nkill<=" . $data["nkillsf"]);
+        }
+
+        if (($data["propextent_txt"]  ?? null) !="") {
+            $conditions[] = strval("propextent_txt='" . $data["propextent_txt"]. "'");
+        }
+
+        if (($data["ransom"]  ?? null) !="") {
+            $conditions[] = strval("ransom='" . $data["ransom"]. "'");
+        }
+
+        if (($data["ransomamtin"]  ?? null) !="") {
+            $conditions[] = strval("ransomamt>=" . $data["ransomamtin"]);
+        }
+
+        if (($data["ransomamtsf"]  ?? null) !="") {
+            $conditions[] = strval("ransomamt<=" . $data["ransomamtsf"]);
+        }
+
+        if (($data["searchsummary"]  ?? null) !="") // daca cauta cu searchbar si presupun ca am filtre
+        {
+            $query = "SELECT country_txt, latitude, longitude FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
+        } else {
+            $query = "SELECT country_txt, latitude, longitude FROM terrorism WHERE ";
+        }
+
+        //daca avem cautari in filtre
+        if (count($conditions) > 0) {
+            $sql = $query;
+            $sql .= implode(' AND ', $conditions);
+            $sql .= " WHERE latitude !=0 AND longitude !=0";
+        }
+
+        //daca nu avem conditii dar avem searchbar
+        if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) !="") {
+            $sql = "SELECT country_txt, latitude, longitude FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' WHERE latitude !=0 AND longitude !=0";
+        }
+        //daca nu avem nimic
+        if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) =="") {
+            $sql = "SELECT country_txt, latitude, longitude FROM terrorism WHERE latitude !=0 AND longitude !=0";
         }
 
         $result = mysqli_query($this->conexiune, $sql);
