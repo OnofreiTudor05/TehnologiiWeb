@@ -51,6 +51,11 @@ $apiRoutes =  [
         "method" => "GET",
         "route" => "map",
         "function" => "cautaDateMap"
+    ],
+    [
+        "method" => "GET",
+        "route" => "articol",
+        "function" => "cautaDateArticol"
     ]
 ];
 

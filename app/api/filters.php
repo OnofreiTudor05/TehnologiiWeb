@@ -36,3 +36,18 @@ function cautaRecord($request)
     Response::responseCode(400);
     Response::content(['response' => 'invalid data']);
 }
+
+function cautaDateArticol($request)
+{
+    $model = new CRUDRecord();
+    $data = $request['query'];
+    $data = json_encode($data);
+    $response = $model->cautaDateArticol($data);
+    if ($response) {
+        Response::responseCode(200);
+        Response::content($response);
+        exit;
+    }
+    Response::responseCode(400);
+    Response::content(['response' => 'invalid data']);
+}
