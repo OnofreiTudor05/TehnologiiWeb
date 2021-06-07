@@ -3,6 +3,7 @@ require_once "./response.php";
 require_once "./admin.php";
 require_once "./filters.php";
 require_once "./chart.php";
+require_once "./map.php";
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -45,6 +46,11 @@ $apiRoutes =  [
         "method" => "GET",
         "route" => "chart",
         "function" => "cautaDateGrafic"
+    ],
+    [
+        "method" => "GET",
+        "route" => "map",
+        "function" => "cautaDateMap"
     ]
 ];
 
