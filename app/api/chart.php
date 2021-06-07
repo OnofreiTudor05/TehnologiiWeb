@@ -12,9 +12,18 @@ function cautaDateGrafic($request)
 
     $response = array();
     $response['dateGrafic'] = $model->cautaDateGrafic($data);
-    $data = json_decode($data,true);
-    $response['selecteazagr'] =  $data['selecteazagr'];
-    $response['tipdategrafic'] =  $data['tipdategrafic'];
+    $data = json_decode($data, true);
+    if (($data["selecteazagr"]  ?? null) == "") {
+        $response['selecteazagr'] = "Pie";
+    } else {
+        $response['selecteazagr'] =  $data['selecteazagr'];
+    }
+
+    if (($data["tipdategrafic"]  ?? null) == "") {
+        $response["tipdategrafic"] = "country_txt";
+    } else {
+        $response['tipdategrafic'] =  $data['tipdategrafic'];
+    }
     if ($response) {
         Response::responseCode(200);
         Response::content($response);
