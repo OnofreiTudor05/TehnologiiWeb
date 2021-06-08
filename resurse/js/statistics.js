@@ -94,7 +94,7 @@ function drawArticle(data) {
   descCont.appendChild(desc);
 
   var seeMore = document.createElement("a");
-  seeMore.setAttribute("href", "seemore.html?eventid=" + data['eventid']);
+  seeMore.setAttribute("href", "seemore?eventid=" + data['eventid']);
   seeMore.setAttribute("class", "butonSee");
 
   var seeMoreText = document.createTextNode("See More");
@@ -122,5 +122,21 @@ ca sa stiu cand schimb pagina
 Sa facem 2 sectiuni separate articole si grafice, in care sa se incadreze mereu
 Sa facem ca initial sa scrie un text, niciun articol sau grafic. alea sa le generam abia dupa un search.
 
+implementez mesajul de no content la filtrare(sau nu)
 
-implementez see more, mesajul de no content la filtrare(sau nu)*/
+in articolele din admin ar fi util daca s ar vedea si eventidul
+edit o sa fie ciudat dpdv al parametrilor
+delete ul e simplu
+
+daca nu imi iese paginarea fac un input field in care dau nr paginii si il trimit pt a face limit-ul
+termin in seemore.js o schema(sau nu)
+copiez la admin similar cu statistics(nu mai e nevoie de alt seemore)
+termin grafice + map ajax
+
+
+
+scap de smecheria cu if (resp != "")
+        return resp.json();
+      else return "";
+      ca nu merge nici aici nici la seemore
+*/

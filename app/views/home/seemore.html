@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../resurse/styles/seemore.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>See More</title>
+</head>
+
+<body style="background-color:#35e7ac;">
+
+    <p style="text-align: center;">
+        <a id="backbutton" class="buton">Back</a>
+    </p>
+    <div id="errorMsg" style="text-align: center;"></div>
+    <div id="pagina">
+        <div class="completeaza">
+            <label for="eventid">
+                <h3> Id: </h3>
+            </label>
+            <p id="eventid" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="iyear">
+                <h3> An: </h3>
+            </label>
+            <p id="iyear" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="imonth">
+                <h3> Luna: </h3>
+            </label>
+            <p id="imonth" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="iday">
+                <h3> Zi: </h3>
+            </label>
+            <p id="iday" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="country">
+                <h3> Id tara: </h3>
+            </label>
+            <p id="country" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="country_txt">
+                <h3> Nume tara: </h3>
+            </label>
+            <p id="country_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="region">
+                <h3> Id regiune: </h3>
+            </label>
+            <p id="region" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="region_txt">
+                <h3> Regiune: </h3>
+            </label>
+            <p id="region_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="provstate">
+                <h3> Judet: </h3>
+            </label>
+            <p id="provstate" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="city">
+                <h3> Oras: </h3>
+            </label>
+            <p id="city" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="latitude">
+                <h3> Latitudine: </h3>
+            </label>
+            <p id="latitude" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="longitude">
+                <h3> Longitudine: </h3>
+            </label>
+            <p id="longitude" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="location">
+                <h3> Locatie: </h3>
+            </label>
+            <p id="location" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="summary">
+                <h3> Rezumat: </h3>
+            </label>
+            <p id="summary" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="success">
+                <h3> Succes: </h3>
+            </label>
+            <p id="success" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="suicide">
+                <h3> Suicide: </h3>
+            </label>
+            <p id="suicide" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="attacktype1">
+                <h3> Id atac: </h3>
+            </label>
+            <p id="attacktype1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="attacktype1_txt">
+                <h3> Atac: </h3>
+            </label>
+            <p id="attacktype1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="targtype1">
+                <h3> Id tinta principala: </h3>
+            </label>
+            <p id="targtype1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="targtype1_txt">
+                <h3> Tip tinta principala: </h3>
+            </label>
+            <p id="targtype1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="targsubtype1">
+                <h3> Id tinta secundara: </h3>
+            </label>
+            <p id="targsubtype1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="targsubtype1_txt">
+                <h3> Tip tinta secundara: </h3>
+            </label>
+            <p id="targsubtype1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="corp1">
+                <h3> Titlu tinta: </h3>
+            </label>
+            <p id="corp1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="target1">
+                <h3> Tinta: </h3>
+            </label>
+            <p id="target1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="natlty1">
+                <h3> Id nationalitate tinta: </h3>
+            </label>
+            <p id="natlty1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="natlty1_txt">
+                <h3> Nationalitate tinta: </h3>
+            </label>
+            <p id="natlty1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="gname">
+                <h3> Nume asociatie terorista: </h3>
+            </label>
+            <p id="gname" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="weaptype1">
+                <h3> Id tip arma: </h3>
+            </label>
+            <p id="weaptype1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="weaptype1_txt">
+                <h3> Tip arma: </h3>
+            </label>
+            <p id="weaptype1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="weapsubtype1">
+                <h3> Id subtip arma: </h3>
+            </label>
+            <p id="weapsubtype1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="weapsubtype1_txt">
+                <h3> Subtip arma: </h3>
+            </label>
+            <p id="weapsubtype1_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="weapdetail">
+                <h3> Detalii arma: </h3>
+            </label>
+            <p id="weapdetail" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="nkill">
+                <h3> Numar victime: </h3>
+            </label>
+            <p id="nkill" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="nhostkid">
+                <h3> Numar ostatici: </h3>
+            </label>
+            <p id="nhostkid" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="propextent">
+                <h3> Id daune: </h3>
+            </label>
+            <p id="propextent" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="propextent_txt">
+                <h3> Daune: </h3>
+            </label>
+            <p id="propextent_txt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="ransom">
+                <h3> Rascumparare: </h3>
+            </label>
+            <p id="ransom" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="ransomamt">
+                <h3> Valoare rascumparare: </h3>
+            </label>
+            <p id="ransomamt" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="addnotes">
+                <h3> Adaugari: </h3>
+            </label>
+            <p id="addnotes" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="scite1">
+                <h3> Consecinta 1: </h3>
+            </label>
+            <p id="scite1" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="scite2">
+                <h3> Consecinta 2: </h3>
+            </label>
+            <p id="scite2" class="textphp">
+            </p>
+        </div>
+
+        <div class="completeaza">
+            <label for="scite3">
+                <h3> Consecinta 3: </h3>
+            </label>
+            <p id="scite3" class="textphp">
+            </p>
+        </div>
+    </div>
+    <script src="../resurse/js/seemore.js"></script>
+</body>
+
+</html>
