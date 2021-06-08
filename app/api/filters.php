@@ -18,7 +18,7 @@ function cautaDupaId($request)
         exit;
     }
 
-    Response::responseCode(204);
+    Response::responseCode(400);
     Response::content(['response' => 'no results']);
 }
 
@@ -33,7 +33,7 @@ function cautaRecord($request)
         Response::content($response);
         exit;
     }
-    Response::responseCode(204);
+    Response::responseCode(400);
     Response::content(['response' => 'no results']);
 }
 
@@ -48,6 +48,6 @@ function cautaDateArticol($request)
         Response::content($response);
         exit;
     }
-    Response::responseCode(204);
+    Response::responseCode(400);
     Response::content(['response' => 'no results']);
 }

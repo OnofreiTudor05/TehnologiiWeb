@@ -53,11 +53,13 @@ let scite3 = document.getElementById("scite3");
 
 fetch("../app/api/attack/" + queryid)
     .then(function (resp) {
-        if (resp != "") return resp.json();
-        else { errorMsg.textContent = "Invalid id"; return ""; }
+       return resp.json();
     })
     .then(function (jsonResp) {
-        if (jsonResp != "") setData(jsonResp);
+        if (jsonResp.hasOwnProperty('response')) {
+            if (jsonResp.response.includes("no result")) { errorMsg.textContent = "Invalid id"; }
+        }
+        else setData(jsonResp);
     }).catch(function (err) {
         console.log(err);
     });

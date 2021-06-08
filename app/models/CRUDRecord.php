@@ -181,6 +181,7 @@ class CRUDRecord
         }
 
         $result = mysqli_query($this->conexiune, $sql);
+        if(!$result) return false;
         $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
     }
@@ -288,6 +289,7 @@ class CRUDRecord
         }
 
         $result = mysqli_query($this->conexiune, $sql);
+        if(!$result) return false;
         $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
     }
@@ -389,6 +391,7 @@ class CRUDRecord
         }
 
         $result = mysqli_query($this->conexiune, $sql);
+        if(!$result) return false;
         $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
     }
@@ -466,6 +469,10 @@ class CRUDRecord
             $conditions[] = strval("ransomamt<=" . $data["ransomamtsf"]);
         }
 
+        if (($data["pageno"]  ?? null) =="") {
+            $data["pageno"] = 1;
+        }
+
         if (($data["searchsummary"]  ?? null) !="") // daca cauta cu searchbar si presupun ca am filtre
         {
             $query = "SELECT eventid, summary FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
@@ -477,18 +484,20 @@ class CRUDRecord
         if (count($conditions) > 0) {
             $sql = $query;
             $sql .= implode(' AND ', $conditions);
+            $sql .= " LIMIT " . ($data["pageno"]-1)*5 . ", 5";
         }
 
         //daca nu avem conditii dar avem searchbar
         if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) !="") {
-            $sql = "SELECT eventid, summary FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' ";
+            $sql = "SELECT eventid, summary FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' " . "LIMIT " . ($data["pageno"]-1)*5 . ", 5";
         }
         //daca nu avem nimic
         if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) =="") {
-            $sql = "SELECT eventid, summary FROM terrorism ";
+            $sql = "SELECT eventid, summary FROM terrorism " . "LIMIT " . ($data["pageno"]-1)*5 . ", 5";
         }
 
         $result = mysqli_query($this->conexiune, $sql);
+        if(!$result) return false;
         $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
     }

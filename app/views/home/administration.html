@@ -11,16 +11,16 @@
 
 <body style="background-color:#35e7ac;">
 
-  <p style="text-align: center;"><button class="butonSee1"> Add Article </button>
+  <p style="text-align: center;"><a href="addarticle" class="butonSee1"> Add Article </a>
   </p>
 
   <main id="pagina">
 
-    <form action="Test.php" method="GET">
+    <form action="admin" method="GET">
 
       <div class="search">
-        <input id="baralatime" type="text" name="searchsummary" placeholder="Search...">
-        <input type="submit" class="butonSee" value="Search">
+        <input id="searchsummary" type="text" name="searchsummary" placeholder="Search...">
+        <input id="search" type="submit" class="butonSee" value="Search">
       </div>
 
       <div class="filters">
@@ -3516,95 +3516,23 @@
             <input type="number" id="ransomamtsf" name="ransomamtsf">
           </div>
         </div>
+
+        <div class="filterline">
+          <div class="filterlabel">
+            <label for="pageno">Pagina de rezultate:</label>
+          </div>
+          <div class="filteritem">
+            <input type="number" id="pageno" name="pageno" value="1" min="1">
+          </div>
+        </div>
       </div>
     </form>
 
-    <aside>
-
-      <article class="articol">
-        <h3>
-          Date: 12/31/2017
-        </h3>
-        <h3>
-          An explosive device was discovered and defused at a plaza in Cotabato City, Maguindanao, Philippines. No group
-          claimed responsibility for the incident.
-        </h3>
-        <h3>
-          <button class="butonSee"> Edit </button>
-          <a href="#" class="butonSee">See More</a>
-          <button class="butonSee"> Delete </button>
-
-        </h3>
-
-      </article>
-
-      <article class="articol">
-        <h3>
-          Date: 12/31/2017
-        </h3>
-        <h3>
-          Assailants threw a grenade at a Forest Department office in Mantripukhri neighborhood, Imphal, Manipur, India.
-          No casualties were reported in the blast. No group claimed responsibility for the incident.
-        </h3>
-        <h3>
-          <button class="butonSee"> Edit </button>
-          <a href="#" class="butonSee">See More</a>
-          <button class="butonSee"> Delete </button>
-
-        </h3>
-      </article>
-
-      <article class="articol">
-        <h3>
-          Date: 12/31/2017
-        </h3>
-        <h3>
-          Assailants set fire to houses in Kubentog, Datu Hoffer, Maguindanao, Philippines. There were no reported
-          casualties in the attack. No group claimed responsibility for the incident; however, sources attributed the
-          attack to the Bangsamoro Islamic Freedom Movement (BIFM).
-        </h3>
-        <h3>
-          <button class="butonSee"> Edit </button>
-          <a href="#" class="butonSee">See More</a>
-          <button class="butonSee"> Delete </button>
-        </h3>
-      </article>
-
-      <article class="articol">
-        <h3>
-          Date: 12/31/2017
-        </h3>
-        <h3>
-          Assailants launched mortars at the Hmeymim Air Base in Jableh, Lattakia, Syria. Two Russian soldiers were
-          killed and ten people were injured in the attack. No group claimed responsibility for the incident; however,
-          sources attributed the attack to Muslim extremists.
-        </h3>
-        <h3>
-          <button class="butonSee"> Edit </button>
-          <a href="#" class="butonSee">See More</a>
-          <button class="butonSee"> Delete </button>
-        </h3>
-      </article>
-
-      <article class="articol">
-        <h3>
-          Date: 01/01/1998
-        </h3>
-        <h3>
-          Hutu Rebels attacked a Burundi military target at Bujumbura Airport. The attack resulted in 104 fatalities,
-          including 100 perpetrators, and six injuries.
-        </h3>
-        <h3>
-          <button class="butonSee"> Edit </button>
-          <a href="#" class="butonSee">See More</a>
-          <button class="butonSee"> Delete </button>
-        </h3>
-      </article>
-
+    <aside id="container">
     </aside>
 
-
   </main>
+  <script src="../resurse/js/admin.js"></script>
 </body>
 
 </html>

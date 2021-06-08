@@ -4,7 +4,7 @@
 	grid-gap: 1vw;
 }
 
-#baralatime{
+#searchsummary{
 	font-size: 1vw;
     width:30vw;
 	margin-right: 1vw;
@@ -165,7 +165,7 @@ input[type=number], select{
 		font-size: 4vw;	
 	}
 
-	#baralatime[type="text"]{
+	#searchsummary[type="text"]{
 		font-size: 4vw;
 	}
 
@@ -173,7 +173,7 @@ input[type=number], select{
 		font-size: 4vw;
 	}
 
-	#baralatime{
+	#search{
 		width: 100%;
 	}
 
@@ -182,7 +182,7 @@ input[type=number], select{
 		padding-bottom: 4vw;
 	}
 
-	.search{
+	.searchsummary{
 		padding-bottom: 4vw;
 	}
 

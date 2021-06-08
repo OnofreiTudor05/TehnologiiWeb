@@ -16,8 +16,6 @@ let propextent_txt = document.getElementById("propextent_txt");
 let ransom = document.getElementById("ransom");
 let ransomamtin = document.getElementById("ransomamtin");
 let ransomamtsf = document.getElementById("ransomamtsf");
-let selecteazagr = document.getElementById("selecteazagr");
-let tipdategrafic = document.getElementById("tipdategrafic");
 let pageno = document.getElementById("pageno");
 let container = document.getElementById("container");
 let submitBtn = document.getElementById("search");
@@ -48,8 +46,6 @@ function onClick() {
     ransom: ransom.value,
     ransomamtin: ransomamtin.value,
     ransomamtsf: ransomamtsf.value,
-    selecteazagr: selecteazagr.value,
-    tipdategrafic: tipdategrafic.value,
     pageno: pageno.value
   };
 
@@ -65,21 +61,15 @@ function onClick() {
         if (jsonResp.response.includes("no result"));//set emptyMsg
       }
       else {
-        var rest = 5 - jsonResp.length;
         jsonResp.forEach(function (data) {
           drawArticle(data);
         });
-        for (var i = 0; i < rest; i++)
-          drawPadding();
-        drawImage();
       }
       submitBtn.removeAttribute("disabled");
       submitBtn.textContent = 'Search';
     }).catch(function (err) {
       console.log(err);
     });
-
-  //inca un fetch pt grafice
 }
 
 
@@ -101,13 +91,27 @@ function drawArticle(data) {
   var desc = document.createTextNode("Summary: " + detalii[1]);
   descCont.appendChild(desc);
 
+  var edit = document.createElement("a");
+  edit.setAttribute("href", "edit?eventid=" + data['eventid']);
+  edit.setAttribute("class", "butonSee");
+  var editText = document.createTextNode("Edit");
+  edit.appendChild(editText);
+
   var seeMore = document.createElement("a");
   seeMore.setAttribute("href", "seemore?eventid=" + data['eventid']);
   seeMore.setAttribute("class", "butonSee");
-
   var seeMoreText = document.createTextNode("See More");
   seeMore.appendChild(seeMoreText);
+
+  var deleteBtn = document.createElement("a");
+  deleteBtn.setAttribute("href", "delete?eventid=" + data['eventid']);
+  deleteBtn.setAttribute("class", "butonSee");
+  var deleteText = document.createTextNode("Delete");
+  deleteBtn.appendChild(deleteText);
+
+  seeMoreCont.appendChild(edit);
   seeMoreCont.appendChild(seeMore);
+  seeMoreCont.appendChild(deleteBtn);
 
 
   articol.appendChild(dateCont);
@@ -117,51 +121,18 @@ function drawArticle(data) {
   container.appendChild(articol);
 }
 
-function drawPadding() {
-  var emptyDiv = document.createElement("div");
-  container.appendChild(emptyDiv);
-}
 
-function drawImage() {
-  var figura = document.createElement("figure");
-  var img = document.createElement("img");
-  img.setAttribute("class", "grafic");
-  img.setAttribute("src", "../resurse/Poze/Grafic.png");
-  img.setAttribute("alt", "Grafic");
-  figura.appendChild(img);
-  container.appendChild(figura);
-}
-
-
-
-/*
-
-reparam chestiile nule trimise ca sa mearga edit(problema ex: ransomamtactual is null)
-daca completez toate campurile, abia atunci merge update ul
-reparam afisarile nule pe see more/edit
-facem pagina de delete ca e mai simplu decat event listener pe fiecare buton
-
-- divuri goale charts/map/articles(statistics, admin, maps)
-Sa facem ca initial sa scrie un text, niciun articol sau grafic. alea sa le generam abia dupa un search.
-
-- din api la harta adaugam
-tara ca title
-latitude
-longitude
-cu floatval()
-si
-color
-
-
-- sa facem ajax pt charts, map, exporturi(problema webp), stergeri
-- si protectii xss/sqli
-
-
-final:
-stronger checks la delete/ce mai e  gen sa ne asiguram ca sigur a sters macar ceva si ca nu a fost invalid id(optional)
-Pe pagina principala generam harta ca poza(optional)
-+documentatii, Scoatem console_log(verificam tot codul + comentarii + stilizari)
-
-
-
-*/
+/*<article class="articol">
+<h3>
+  Date: 01/01/1998
+</h3>
+<h3>
+  Hutu Rebels attacked a Burundi military target at Bujumbura Airport. The attack resulted in 104 fatalities,
+  including 100 perpetrators, and six injuries.
+</h3>
+<h3>
+  <button class="butonSee"> Edit </button>
+  <a href="#" class="butonSee">See More</a>
+  <button class="butonSee"> Delete </button>
+</h3>
+</article>*/
