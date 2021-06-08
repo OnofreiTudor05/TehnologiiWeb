@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <link rel="icon" href="../resurse/Poze/icon.jpg">
-      <link href="../resurse/styles/statistics.css" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta charset="utf-8">
-      <title>Statistics</title>
-  </head>
+<head>
+  <link rel="icon" href="../resurse/Poze/icon.jpg">
+  <link href="../resurse/styles/statistics.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Statistics</title>
+</head>
 
 <body style="background-color:#35e7ac;">
 
@@ -27,11 +27,11 @@
   </nav>
 
   <main id="pagina">
-    <form action="Test.php" method="GET">
+    <form action="statistics" method="GET">
 
       <div class="search">
-        <input id="baralatime" type="text" name="searchsummary" placeholder="Search...">
-        <input type="submit" class="butonSee" value="Search">
+        <input id="searchsummary" type="text" name="searchsummary" placeholder="Search...">
+        <input id="search" type="submit" class="butonSee" value="Search">
       </div>
 
       <div class="filters">
@@ -3567,92 +3567,15 @@
     </form>
 
     <aside>
-
-      <article class="articol">
-        <h4>
-          Date: 12/31/2017
-        </h4>
-        <h4>
-          An explosive device was discovered and defused at a plaza in Cotabato City, Maguindanao,
-          Philippines. No group claimed responsibility for the incident.
-        </h4>
-        <h4>
-          <a href="#" class="butonSee">See More</a>
-        </h4>
-
-      </article>
-
-      <article class="articol">
-        <h4>
-          Date: 12/31/2017
-        </h4>
-        <h4>
-          Assailants threw a grenade at a Forest Department office in Mantripukhri neighborhood, Imphal,
-          Manipur, India. No casualties were reported in the blast. No group claimed responsibility for the
-          incident.
-        </h4>
-        <h4>
-          <a href="#" class="butonSee">See More</a>
-        </h4>
-      </article>
-
-      <article class="articol">
-        <h4>
-          Date: 12/31/2017
-        </h4>
-        <h4>
-          Assailants set fire to houses in Kubentog, Datu Hoffer, Maguindanao, Philippines. There were no
-          reported casualties in the attack. No group claimed responsibility for the incident; however,
-          sources attributed the attack to the Bangsamoro Islamic Freedom Movement (BIFM).
-        </h4>
-        <h4>
-          <a href="#" class="butonSee">See More</a>
-        </h4>
-      </article>
-
-      <article class="articol">
-        <h4>
-          Date: 12/31/2017
-        </h4>
-        <h4>
-          Assailants launched mortars at the Hmeymim Air Base in Jableh, Lattakia, Syria. Two Russian soldiers
-          were killed and ten people were injured in the attack. No group claimed responsibility for the
-          incident; however, sources attributed the attack to Muslim extremists.
-        </h4>
-        <h4>
-          <a href="#" class="butonSee">See More</a>
-        </h4>
-      </article>
-
-      <article class="articol">
-        <h4>
-          Date: 01/01/1998
-        </h4>
-        <h4>
-          Hutu Rebels attacked a Burundi military target at Bujumbura Airport. The attack resulted in 104
-          fatalities, including 100 perpetrators, and six injuries.
-        </h4>
-        <h4>
-          <a href="#" class="butonSee">See More</a>
-        </h4>
-      </article>
-
+      <div id="articole"></div>
       <figure>
         <img class="grafic" src="../resurse/Poze/Grafic.png" alt="Grafic">
-    </figure>
-
-    <figure>
-        <img class="grafic" src="../resurse/Poze/Grafic.png" alt="Grafic">
-    </figure>
-
-    <figure>
-        <img class="grafic" src="../resurse/Poze/Grafic.png" alt="Grafic">
-    </figure>
-
+      </figure>
     </aside>
 
 
   </main>
+  <script src="../resurse/ajax/statistics.js"></script>
 </body>
 
 </html>

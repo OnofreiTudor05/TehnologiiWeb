@@ -18,8 +18,8 @@ function cautaDupaId($request)
         exit;
     }
 
-    Response::responseCode(400);
-    Response::content(['response' => 'invalid id']);
+    Response::responseCode(204);
+    Response::content(['response' => 'no results']);
 }
 
 function cautaRecord($request)
@@ -33,8 +33,8 @@ function cautaRecord($request)
         Response::content($response);
         exit;
     }
-    Response::responseCode(400);
-    Response::content(['response' => 'invalid data']);
+    Response::responseCode(204);
+    Response::content(['response' => 'no results']);
 }
 
 function cautaDateArticol($request)
@@ -48,6 +48,6 @@ function cautaDateArticol($request)
         Response::content($response);
         exit;
     }
-    Response::responseCode(400);
-    Response::content(['response' => 'invalid data']);
+    Response::responseCode(204);
+    Response::content(['response' => 'no results']);
 }
