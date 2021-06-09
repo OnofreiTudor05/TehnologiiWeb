@@ -12,8 +12,9 @@
     height: 100%;
 }
 
-.articolGol{
+.articolGol {
     grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 #legendDiv {
@@ -89,6 +90,7 @@
     border-style: solid;
     margin-bottom: 1.5vw;
     grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .grafic {

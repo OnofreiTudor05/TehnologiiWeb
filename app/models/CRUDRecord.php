@@ -262,6 +262,41 @@ class CRUDRecord
             $data["tipdategrafic"] = "country_txt";
         }
 
+        if (($data["selecteazagr"]  ?? null) == "") {
+            $data['selecteazagr'] = "Pie";
+        }
+
+        if ($data["selecteazagr"] == 'Line') {
+            if (($data["searchsummary"]  ?? null) != "") // daca cauta cu searchbar si presupun ca am filtre
+            {
+                $query = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
+            } else {
+                $query = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism WHERE ";
+            }
+
+            //daca avem cautari in filtre
+            if (count($conditions) > 0) {
+                $sql = $query;
+                $sql .= implode(' AND ', $conditions);
+                $sql .= " GROUP BY ";
+                $sql .= $data["tipdategrafic"];
+                $sql .= " ORDER BY " . $data["tipdategrafic"];
+            }
+
+            //daca nu avem conditii dar avem searchbar
+            if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) != "") {
+                $sql = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' GROUP BY " . $data["tipdategrafic"] . " ORDER BY " . $data["tipdategrafic"];
+            }
+            //daca nu avem nimic
+            if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) == "") {
+                $sql = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism GROUP BY " . $data["tipdategrafic"] . " ORDER BY " . $data["tipdategrafic"];
+            }
+
+            $result = mysqli_query($this->conexiune, $sql);
+            if (!$result) return false;
+            $content = $result->fetch_all(MYSQLI_ASSOC);
+            return $content;
+        }
         if (($data["searchsummary"]  ?? null) != "") // daca cauta cu searchbar si presupun ca am filtre
         {
             $query = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND ";
@@ -287,10 +322,43 @@ class CRUDRecord
             $sql = "SELECT " . $data["tipdategrafic"] . " , COUNT(*) AS numarAtacuri FROM terrorism GROUP BY " . $data["tipdategrafic"] . " ORDER BY numarAtacuri DESC";
         }
 
+
         $result = mysqli_query($this->conexiune, $sql);
         if (!$result) return false;
-        $content = $result->fetch_all(MYSQLI_ASSOC);
-        return $content;
+
+        $rezultatDeTrimis = array();
+        $totalAtacuri = 0;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $totalAtacuri += $row['numarAtacuri'];
+                $arr = array(
+                    $data['tipdategrafic'] => $row[$data['tipdategrafic']],
+                    'numarAtacuri' => $row['numarAtacuri']
+                );
+                $rezultatDeTrimis[] = $arr;
+            }
+
+
+            $rezultateFinale = array();
+            $atacuriOther = 0;
+
+            foreach ($rezultatDeTrimis as $entry) {
+
+                if ($entry['numarAtacuri'] * 100 > $totalAtacuri) {
+                    $rezultateFinale[] = array(
+                        $data['tipdategrafic'] => $entry[$data['tipdategrafic']],
+                        'numarAtacuri' => $entry['numarAtacuri']
+                    );
+                } else {
+                    $atacuriOther += $entry['numarAtacuri'];
+                }
+            }
+            $rezultateFinale[] = array(
+                $data['tipdategrafic'] => 'Other',
+                'numarAtacuri' => $atacuriOther
+            );
+            return $rezultateFinale;
+        }
     }
 
     public function cautaDateMap($data)

@@ -62,7 +62,7 @@ function onClick() {
         })
         .then(function(jsonResp) {
             if (jsonResp.hasOwnProperty('response')) {
-                if (jsonResp.response.includes("no result")) { container.textContent = "No results."; }
+                if (jsonResp.response.includes("no result")) { container.textContent = "No results."; return; }
             } else {
                 var rest = 5 - jsonResp.length;
                 jsonResp.forEach(function(data) {
@@ -154,7 +154,7 @@ function drawArticle(data) {
 
 function drawPadding() {
     var emptyDiv = document.createElement("div");
-    emptyDiv.setAttribute("class","articolGol");
+    emptyDiv.setAttribute("class", "articolGol");
     container.appendChild(emptyDiv);
 }
 
@@ -169,9 +169,6 @@ function drawLine(data) {
         am4core.useTheme(am4themes_animated);
 
         var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-        var data = [];
-        var value = 50;
         chart.data = data.dateGrafic;
 
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
