@@ -1,6 +1,5 @@
 <html>
 
-<!-- Styles -->
 <?php $data = require_once('getData.php'); ?>
 <style>
   #chartdiv {
@@ -11,49 +10,39 @@
   }
 </style>
 
-<!-- Resources -->
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"> </script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"> </script>
 
-<!-- Chart code -->
 <script>
   am4core.ready(function() {
 
-    // Themes begin
     am4core.useTheme(am4themes_animated);
-    // Themes end
 
-    // Create map instance
     var chart = am4core.create("chartdiv", am4maps.MapChart);
 
-    // Set map definition
     chart.geodata = am4geodata_worldLow;
 
-    // Set projection
     chart.projection = new am4maps.projections.Miller();
 
-    // Create map polygon series
     var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
-    // Exclude Antartica
     polygonSeries.exclude = ["AQ"];
 
-    // Make map load polygon (like country names) data from GeoJSON
     polygonSeries.useGeodata = true;
 
-    // Configure series
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}";
     polygonTemplate.polygon.fillOpacity = 0.6;
 
 
-    // Create hover state and set alternative fill color
     var hs = polygonTemplate.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(0);
 
-    // Add image series
     var imageSeries = chart.series.push(new am4maps.MapImageSeries());
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
@@ -68,30 +57,60 @@
     var colorSet = new am4core.ColorSet();
 
     imageSeries.data = <?= $data; ?>;
-  }); // end am4core.ready()
+
+    var json = json3.items
+    var fields = Object.keys(json[0])
+    var replacer = function(key, value) {
+      return value === null ? '' : value
+    }
+    var csv = json.map(function(row) {
+      return fields.map(function(fieldName) {
+        return JSON.stringify(row[fieldName], replacer)
+      }).join(',')
+    })
+    csv.unshift(fields.join(',')) // add header column
+    csv = csv.join('\r\n');
+    console.log(csv);
+
+    chart.exporting.menu = new am4core.ExportMenu();
+    //chart.exporting.menu.items[0].icon = "SaveIcon.png";
+    chart.exporting.menu.align = "left";
+    chart.exporting.menu.verticalAlign = "top";
+
+    chart.exporting.menu.items = [{
+      "label": "...",
+      "menu": [{
+          "type": "csv",
+          "label": "CSV"
+        },
+        {
+          "type": "svg",
+          "label": "SVG"
+        }
+      ]
+    }];
+
+    chart.exporting.menu.items[0].menu.push({
+      label: "WebP",
+      type: "custom",
+      options: {
+        callback: function() {
+          window.scrollTo(0, 0);
+          html2canvas(document.getElementById("chartdiv")).then(function(canvas) {
+            var imageWeb = canvas.toDataURL("image/webp", 0.9);
+            var a = document.createElement('a');
+            a.href = imageWeb;
+            a.download = 'image/webp';
+            a.click();
+          });
+        }
+      }
+    });
+  });
 </script>
 
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"> </script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"> </script>
-
-  <script>
-    function doCapture() {
-      window.scrollTo(0, 0);
-      html2canvas(document.getElementById("chartdiv")).then(function(canvas) {
-        var imageWeb = canvas.toDataURL("image/webp", 1);
-        //console.log(imageWeb);
-
-        var a = document.createElement('a');
-        a.href = imageWeb;
-        a.download = 'image/webp';
-        a.click();
-        //document.body.appendChild(imageWeb);
-      });
-    }
-  </script>
-<!-- HTML -->
 <body>
-  <button id="saveIt" onclick="doCapture()"> Save </button>
   <div id="chartdiv"></div>
 </body>
+
 </html>
