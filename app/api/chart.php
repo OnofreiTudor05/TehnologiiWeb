@@ -8,6 +8,9 @@ function cautaDateGrafic($request)
 {
     $model = new CRUDRecord();
     $data = $request['query'];
+    foreach ($data as &$string) {
+        $string = urldecode($string);
+    }
     $data = json_encode($data);
 
     $response = array();
