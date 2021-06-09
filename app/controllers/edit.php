@@ -1,13 +1,9 @@
 <?php
 
-class Edit extends Controller{
-    public function render($name = ''){
-        /*$user = $this->model('User');
-        $user->name = $name;
-        
-        $this->view('home/map', ['name' => $user->name]);*/
-
+class Edit extends Controller
+{
+    public function render()
+    {
         $this->view('home/edit');
     }
-
 }

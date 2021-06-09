@@ -1,10 +1,7 @@
 <?php
 
 class Contact extends Controller{
-    public function render($name = ''){
-       // $user = $this->model('User');
-       // $user->name = $name;
-        
+    public function render(){
         $this->view('home/contact');
     }
 }

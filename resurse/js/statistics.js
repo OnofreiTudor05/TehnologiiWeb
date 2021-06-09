@@ -57,20 +57,20 @@ function onClick() {
     url.search = new URLSearchParams(content).toString();
 
     fetch(url)
-        .then(function (resp) {
+        .then(function(resp) {
             return resp.json();
         })
-        .then(function (jsonResp) {
+        .then(function(jsonResp) {
             if (jsonResp.hasOwnProperty('response')) {
                 if (jsonResp.response.includes("no result")) {
-                    container.textContent = "No results."; 
+                    container.textContent = "No results.";
                     submitBtn.removeAttribute("disabled");
                     submitBtn.textContent = 'Search';
                     return;
                 }
             } else {
                 var rest = 5 - jsonResp.length;
-                jsonResp.forEach(function (data) {
+                jsonResp.forEach(function(data) {
                     drawArticle(data);
                 });
                 for (var i = 0; i < rest; i++)
@@ -80,10 +80,10 @@ function onClick() {
             var url = new URL("http://localhost/TehnologiiWeb/app/api/chart");
             url.search = new URLSearchParams(content).toString();
             return fetch(url)
-                .then(function (resp) {
+                .then(function(resp) {
                     return resp.json();
                 })
-                .then(function (jsonResp) {
+                .then(function(jsonResp) {
                     if (jsonResp.hasOwnProperty('response')) {
                         if (jsonResp.response.includes("Invalid")) {
                             var date = document.createTextNode(jsonResp.response);
@@ -104,14 +104,14 @@ function onClick() {
                     }
                     submitBtn.removeAttribute("disabled");
                     submitBtn.textContent = 'Search';
-                }).catch(function (err) {
+                }).catch(function(err) {
                     submitBtn.removeAttribute("disabled");
                     submitBtn.textContent = 'Search';
                     console.log(err);
                     return;
                 });
 
-        }).catch(function (err) {
+        }).catch(function(err) {
             console.log(err);
             submitBtn.removeAttribute("disabled");
             submitBtn.textContent = 'Search';
@@ -168,7 +168,7 @@ function drawLine(data) {
     wrapper.setAttribute("id", "chartdiv");
     container.appendChild(wrapper);
 
-    am4core.ready(function () {
+    am4core.ready(function() {
 
         am4core.useTheme(am4themes_dataviz);
         am4core.useTheme(am4themes_animated);
@@ -192,7 +192,6 @@ function drawLine(data) {
         chart.cursor.snapToSeries = series;
         chart.cursor.xAxis = dateAxis;
 
-        //chart.scrollbarY = new am4core.Scrollbar();
         chart.scrollbarX = new am4core.Scrollbar();
 
         chart.exporting.menu = new am4core.ExportMenu();
@@ -202,13 +201,13 @@ function drawLine(data) {
         chart.exporting.menu.items = [{
             "label": "...",
             "menu": [{
-                "type": "csv",
-                "label": "CSV"
-            },
-            {
-                "type": "svg",
-                "label": "SVG"
-            }
+                    "type": "csv",
+                    "label": "CSV"
+                },
+                {
+                    "type": "svg",
+                    "label": "SVG"
+                }
             ]
         }];
 
@@ -216,9 +215,9 @@ function drawLine(data) {
             label: "WebP",
             type: "custom",
             options: {
-                callback: function () {
+                callback: function() {
                     window.scrollTo(0, 0);
-                    html2canvas(document.getElementById("chartdiv")).then(function (canvas) {
+                    html2canvas(document.getElementById("chartdiv")).then(function(canvas) {
                         var imageWeb = canvas.toDataURL("image/webp", 0.9);
                         var a = document.createElement('a');
                         a.href = imageWeb;
@@ -237,7 +236,7 @@ function drawBar(data) {
     wrapper.setAttribute("id", "chartdiv");
     container.appendChild(wrapper);
 
-    am4core.ready(function () {
+    am4core.ready(function() {
 
         am4core.useTheme(am4themes_dataviz);
         am4core.useTheme(am4themes_animated);
@@ -251,7 +250,7 @@ function drawBar(data) {
         categoryAxis.renderer.grid.template.location = 0;
         categoryAxis.renderer.minGridDistance = 30;
 
-        categoryAxis.renderer.labels.template.adapter.add("dy", function (dy, target) {
+        categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
             if (target.dataItem && target.dataItem.index & 2 == 2) {
                 return dy + 25;
             }
@@ -279,13 +278,13 @@ function drawBar(data) {
         chart.exporting.menu.items = [{
             "label": "...",
             "menu": [{
-                "type": "csv",
-                "label": "CSV"
-            },
-            {
-                "type": "svg",
-                "label": "SVG"
-            }
+                    "type": "csv",
+                    "label": "CSV"
+                },
+                {
+                    "type": "svg",
+                    "label": "SVG"
+                }
             ]
         }];
 
@@ -293,9 +292,9 @@ function drawBar(data) {
             label: "WebP",
             type: "custom",
             options: {
-                callback: function () {
+                callback: function() {
                     window.scrollTo(0, 0);
-                    html2canvas(document.getElementById("chartdiv")).then(function (canvas) {
+                    html2canvas(document.getElementById("chartdiv")).then(function(canvas) {
                         var imageWeb = canvas.toDataURL("image/webp", 0.9);
                         var a = document.createElement('a');
                         a.href = imageWeb;
@@ -317,7 +316,7 @@ function drawPie(data) {
     lwrapper.setAttribute("id", "legendDiv");
     container.appendChild(lwrapper);
 
-    am4core.ready(function () {
+    am4core.ready(function() {
 
         am4core.useTheme(am4themes_dataviz);
 
@@ -351,13 +350,13 @@ function drawPie(data) {
         chart.exporting.menu.items = [{
             "label": "...",
             "menu": [{
-                "type": "csv",
-                "label": "CSV"
-            },
-            {
-                "type": "svg",
-                "label": "SVG"
-            }
+                    "type": "csv",
+                    "label": "CSV"
+                },
+                {
+                    "type": "svg",
+                    "label": "SVG"
+                }
             ]
         }];
 
@@ -365,9 +364,9 @@ function drawPie(data) {
             label: "WebP",
             type: "custom",
             options: {
-                callback: function () {
+                callback: function() {
                     window.scrollTo(0, 0);
-                    html2canvas(document.getElementById("chartdiv")).then(function (canvas) {
+                    html2canvas(document.getElementById("chartdiv")).then(function(canvas) {
                         var imageWeb = canvas.toDataURL("image/webp", 0.9);
                         var a = document.createElement('a');
                         a.href = imageWeb;
@@ -378,18 +377,6 @@ function drawPie(data) {
             }
         });
         chart.exporting.menu.items[0].icon = "../resurse/Poze/SaveIcon.png";
-        //series.alignLabels = false;
     });
 
 }
-
-
-
-/*
-- si protectii xss/sqli(escape javascript sau php)
-
-
-final:
-+documentatii, Scoatem console_log(verificam tot codul + comentarii + stilizari)
-
-*/
