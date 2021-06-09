@@ -12,6 +12,10 @@
     height: 100%;
 }
 
+.articolGol{
+    grid-column-start: 1;
+}
+
 #legendDiv {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -84,6 +88,7 @@
     border: darkblue;
     border-style: solid;
     margin-bottom: 1.5vw;
+    grid-column-start: 1;
 }
 
 .grafic {
@@ -130,6 +135,7 @@
     position: sticky;
     top: 0;
     width: 100%;
+    z-index: 112;
 }
 
 .Button {
