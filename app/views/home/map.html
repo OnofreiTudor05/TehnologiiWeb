@@ -29,11 +29,11 @@
 
 
   <main id="pagina">
-    <form action="Test.php" method="GET">
+    <form action="map" method="GET">
 
       <div class="search">
-        <input id="baralatime" type="text" name="searchsummary" placeholder="Search...">
-        <input type="submit" class="butonSee" value="Search">
+        <input id="searchsummary" type="text" name="searchsummary" placeholder="Search...">
+        <input id="search" type="submit" class="butonSee" value="Search">
       </div>
 
       <div class="filters">
@@ -3532,12 +3532,13 @@
       </div>
     </form>
 
-    <aside>
-      <img class="map" src="../resurse/Poze/map.jpg" alt="Harta">
+    <aside id="container">
+      Selectati filtrele dorite si apasati "Search" pentru a genera harta.
     </aside>
 
 
   </main>
+  <script src="../resurse/js/map.js"></script>
 </body>
 
 </html>

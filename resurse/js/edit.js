@@ -110,7 +110,7 @@ function onSubmit() {
         city: city.value,
         latitude: parseFloat(latitude.value),
         longitude: parseFloat(longitude.value),
-        locatie: locatie.value,
+        location: locatie.value,
         summary: summary.value,
         success: parseInt(success.value),
         suicide: parseInt(suicide.value),
@@ -211,47 +211,252 @@ fetch("../app/api/attack/" + queryid)
     });
 
 function setData(data) {
-    iyearactual.textContent = data.iyear;
-    imonthactual.textContent = data.imonth;
-    idayactual.textContent = data.iday;
-    countryactual.textContent = data.country;
-    country_txtactual.textContent = data.country_txt;
-    regionactual.textContent = data.region;
-    region_txtactual.textContent = data.region_txt;
-    provstateactual.textContent = data.provstate;
-    cityactual.textContent = data.city;
-    latitudeactual.textContent = data.latitude;
-    longitudeactual.textContent = data.longitude;
-    locatieactual.textContent = data.location;
-    summaryactual.textContent = data.summary;
-    successactual.textContent = data.success;
-    suicideactual.textContent = data.suicide;
-    attacktype1actual.textContent = data.attacktype1;
-    attacktype1_txtactual.textContent = data.attacktype1_txt;
-    targtype1actual.textContent = data.targtype1;
-    targtype1_txtactual.textContent = data.targtype1_txt;
-    targsubtype1actual.textContent = data.targsubtype1;
-    targsubtype1_txtactual.textContent = data.targsubtype1_txt;
-    corp1actual.textContent = data.corp1;
-    target1actual.textContent = data.target1;
-    natlty1actual.textContent = data.natlty1;
-    natlty1_txtactual.textContent = data.natlty1_txt;
-    gnameactual.textContent = data.gname;
-    weaptype1actual.textContent = data.weaptype1;
-    weaptype1_txtactual.textContent = data.weaptype1_txt;
-    weapsubtype1actual.textContent = data.weapsubtype1;
-    weapsubtype1_txtactual.textContent = data.weapsubtype1_txt;
-    weapdetailactual.textContent = data.weapdetail;
-    nkillactual.textContent = data.nkill;
-    nhostkidactual.textContent = data.nhostkid;
-    propextentactual.textContent = data.propextent;
-    propextent_txtactual.textContent = data.propextent_txt;
-    ransomactual.textContent = data.ransom;
-    ransomamtactual.textContent = data.ransomamt;
-    addnotesactual.textContent = data.addnotes;
-    scite1actual.textContent = data.scite1;
-    scite2actual.textContent = data.scite2;
-    scite3actual.textContent = data.scite3;
+    if (data.iyear != "") {
+        iyearactual.textContent = data.iyear;
+    }
+    else {
+        iyearactual.textContent = "null";
+    }
+    if (data.imonth != "") {
+        imonthactual.textContent = data.imonth;
+    }
+    else {
+        imonthactual.textContent = "null";
+    }
+    if (data.iday != "") {
+        idayactual.textContent = data.iday;
+    }
+    else {
+        idayactual.textContent = "null";
+    }
+    if (data.country != "") {
+        countryactual.textContent = data.country;
+    }
+    else {
+        countryactual.textContent = "null";
+    }
+    if (data.country_txt != "") {
+        country_txtactual.textContent = data.country_txt;
+    }
+    else {
+        country_txtactual.textContent = "null";
+    }
+    if (data.region != "") {
+        regionactual.textContent = data.region;
+    }
+    else {
+        regionactual.textContent = "null";
+    }
+    if (data.region_txt != "") {
+        region_txtactual.textContent = data.region_txt;
+    }
+    else {
+        region_txtactual.textContent = "null";
+    }
+    if (data.provstate != "") {
+        provstateactual.textContent = data.provstate;
+    }
+    else {
+        provstateactual.textContent = "null";
+    }
+    if (data.city != "") {
+        cityactual.textContent = data.city;
+    }
+    else {
+        cityactual.textContent = "null";
+    }
+    if (data.latitude != "") {
+        latitudeactual.textContent = data.latitude;
+    }
+    else {
+        latitudeactual.textContent = "null";
+    }
+    if (data.longitude != "") {
+        longitudeactual.textContent = data.longitude;
+    }
+    else {
+        longitudeactual.textContent = "null";
+    }
+    if (data.location != "") {
+        locatieactual.textContent = data.location;
+    }
+    else {
+        locatieactual.textContent = "null";
+    }
+    if (data.summary != "") {
+        summaryactual.textContent = data.summary;
+    }
+    else {
+        summaryactual.textContent = "null";
+    }
+    if (data.success != "") {
+        successactual.textContent = data.success;
+    }
+    else {
+        successactual.textContent = "null";
+    }
+    if (data.suicide != "") {
+        suicideactual.textContent = data.suicide;
+    }
+    else {
+        suicideactual.textContent = "null";
+    }
+    if (data.attacktype1 != "") {
+        attacktype1actual.textContent = data.attacktype1;
+    }
+    else {
+        attacktype1actual.textContent = "null";
+    }
+    if (data.attacktype1_txt != "") {
+        attacktype1_txtactual.textContent = data.attacktype1_txt;
+    }
+    else {
+        attacktype1_txtactual.textContent = "null";
+    }
+    if (data.targtype1 != "") {
+        targtype1actual.textContent = data.targtype1;
+    }
+    else {
+        targtype1actual.textContent = "null";
+    }
+    if (data.targtype1_txt != "") {
+        targtype1_txtactual.textContent = data.targtype1_txt;
+    }
+    else {
+        targtype1_txtactual.textContent = "null";
+    }
+    if (data.targsubtype1 != "") {
+        targsubtype1actual.textContent = data.targsubtype1;
+    }
+    else {
+        targsubtype1actual.textContent = "null";
+    }
+    if (data.targsubtype1_txt != "") {
+        targsubtype1_txtactual.textContent = data.targsubtype1_txt;
+    }
+    else {
+        targsubtype1_txtactual.textContent = "null";
+    }
+    if (data.corp1 != "") {
+        corp1actual.textContent = data.corp1;
+    }
+    else {
+        corp1actual.textContent = "null";
+    }
+    if (data.target1 != "") {
+        target1actual.textContent = data.target1;
+    }
+    else {
+        target1actual.textContent = "null";
+    }
+    if (data.natlty1 != "") {
+        natlty1actual.textContent = data.natlty1;
+    }
+    else {
+        natlty1actual.textContent = "null";
+    }
+    if (data.natlty1_txt != "") {
+        natlty1_txtactual.textContent = data.natlty1_txt;
+    }
+    else {
+        natlty1_txtactual.textContent = "null";
+    }
+    if (data.gname != "") {
+        gnameactual.textContent = data.gname;
+    }
+    else {
+        gnameactual.textContent = "null";
+    }
+    if (data.weaptype1 != "") {
+        weaptype1actual.textContent = data.weaptype1;
+    }
+    else {
+        weaptype1actual.textContent = "null";
+    }
+    if (data.weaptype1_txt != "") {
+        weaptype1_txtactual.textContent = data.weaptype1_txt;
+    }
+    else {
+        weaptype1_txtactual.textContent = "null";
+    }
+    if (data.weapsubtype1 != "") {
+        weapsubtype1actual.textContent = data.weapsubtype1;
+    }
+    else {
+        weapsubtype1actual.textContent = "null";
+    }
+    if (data.weapsubtype1_txt != "") {
+        weapsubtype1_txtactual.textContent = data.weapsubtype1_txt;
+    }
+    else {
+        weapsubtype1_txtactual.textContent = "null";
+    }
+    if (data.weapdetail != "") {
+        weapdetailactual.textContent = data.weapdetail;
+    }
+    else {
+        weapdetailactual.textContent = "null";
+    }
+    if (data.nkill != "") {
+        nkillactual.textContent = data.nkill;
+    }
+    else {
+        nkillactual.textContent = "null";
+    }
+    if (data.nhostkid != "") {
+        nhostkidactual.textContent = data.nhostkid;
+    }
+    else {
+        nhostkidactual.textContent = "null";
+    }
+    if (data.propextent != "") {
+        propextentactual.textContent = data.propextent;
+    }
+    else {
+        propextentactual.textContent = "null";
+    }
+    if (data.propextent_txt != "") {
+        propextent_txtactual.textContent = data.propextent_txt;
+    }
+    else {
+        propextent_txtactual.textContent = "null";
+    }
+    if (data.ransom != "") {
+        ransomactual.textContent = data.ransom;
+    }
+    else {
+        ransomactual.textContent = "null";
+    }
+    if (data.ransomamt != "") {
+        ransomamtactual.textContent = data.ransomamt;
+    }
+    else {
+        ransomamtactual.textContent = "null";
+    }
+    if (data.addnotes != "") {
+        addnotesactual.textContent = data.addnotes;
+    }
+    else {
+        addnotesactual.textContent = "null";
+    }
+    if (data.scite1 != "") {
+        scite1actual.textContent = data.scite1;
+    }
+    else {
+        scite1actual.textContent = "null";
+    }
+    if (data.scite2 != "") {
+        scite2actual.textContent = data.scite2;
+    }
+    else {
+        scite2actual.textContent = "null";
+    }
+    if (data.scite3 != "") {
+        scite3actual.textContent = data.scite3;
+    }
+    else {
+        scite3actual.textContent = "null";
+    }
 }
 
 function onClick() {

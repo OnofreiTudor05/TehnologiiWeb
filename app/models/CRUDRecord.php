@@ -64,7 +64,7 @@ class CRUDRecord
             $sql .= implode(',', $conditions);
             $sql .= ")";
         }
-
+        
         if ($this->conexiune->query($sql) === TRUE) {
             return true;
         } else {
@@ -509,167 +509,167 @@ class CRUDRecord
         $conditions = array();
 
 
-        if (!is_null($data["iyear"] ?? null)) {
+        if (($data["iyear"]  ?? null) !="") {
             $conditions[] = strval("iyear=" . $data["iyear"]);
         }
 
-        if (!is_null($data["imonth"] ?? null)) {
+        if (($data["imonth"]  ?? null) !="") {
             $conditions[] = strval("imonth=" . $data["imonth"]);
         }
 
-        if (!is_null($data["iday"] ?? null)) {
+        if (($data["iday"]  ?? null) !="") {
             $conditions[] = strval("iday=" . $data["iday"]);
         }
 
-        if (!is_null($data["country"] ?? null)) {
+        if (($data["country"]  ?? null) !="") {
             $conditions[] = strval("country=" . $data["country"]);
         }
 
-        if (!is_null($data["country_txt"] ?? null)) {
+        if (($data["country_txt"]  ?? null) !="") {
             $conditions[] = strval("country_txt='" . $data["country_txt"] . "'");
         }
 
-        if (!is_null($data["region"] ?? null)) {
+        if (($data["region"]  ?? null) !="") {
             $conditions[] = strval("region=" . $data["region"]);
         }
 
-        if (!is_null($data["region_txt"] ?? null)) {
+        if (($data["region_txt"]  ?? null) !="") {
             $conditions[] = strval("region_txt='" . $data["region_txt"] . "'");
         }
 
-        if (!is_null($data["provstate"] ?? null)) {
+        if (($data["provstate"]  ?? null) !="") {
             $conditions[] = strval("provstate='" . $data["provstate"] . "'");
         }
 
-        if (!is_null($data["city"] ?? null)) {
+        if (($data["city"]  ?? null) !="") {
             $conditions[] = strval("city='" . $data["city"] . "'");
         }
 
-        if (!is_null($data["latitude"] ?? null)) {
+        if (($data["latitude"]  ?? null) !="") {
             $conditions[] = strval("latitude=" . $data["latitude"]);
         }
 
-        if (!is_null($data["longitude"] ?? null)) {
+        if (($data["longitude"]  ?? null) !="") {
             $conditions[] = strval("longitude=" . $data["longitude"]);
         }
 
-        if (!is_null($data["location"] ?? null)) {
+        if (($data["location"]  ?? null) !="") {
             $conditions[] = strval("location='" . $data["location"] . "'");
         }
 
-        if (!is_null($data["summary"] ?? null)) {
+        if (($data["summary"]  ?? null) !="") {
             $conditions[] = strval("summary='" . $data["summary"] . "'");
         }
 
-        if (!is_null($data["success"] ?? null)) {
+        if (($data["success"]  ?? null) !="") {
             $conditions[] = strval("success=" . $data["success"]);
         }
 
-        if (!is_null($data["suicide"] ?? null)) {
+        if (($data["suicide"]  ?? null) !="") {
             $conditions[] = strval("suicide=" . $data["suicide"]);
         }
 
-        if (!is_null($data["attacktype1"] ?? null)) {
+        if (($data["attacktype1"]  ?? null) !="") {
             $conditions[] = strval("attacktype1=" . $data["attacktype1"]);
         }
 
-        if (!is_null($data["attacktype1_txt"] ?? null)) {
+        if (($data["attacktype1_txt"]  ?? null) !="") {
             $conditions[] = strval("attacktype1_txt='" . $data["attacktype1_txt"] . "'");
         }
 
-        if (!is_null($data["targtype1"] ?? null)) {
+        if (($data["targtype1"]  ?? null) !="") {
             $conditions[] = strval("targtype1=" . $data["targtype1"]);
         }
 
-        if (!is_null($data["targtype1_txt"] ?? null)) {
+        if (($data["targtype1_txt"]  ?? null) !="") {
             $conditions[] = strval("targtype1_txt='" . $data["targtype1_txt"] . "'");
         }
 
-        if (!is_null($data["targsubtype1"] ?? null)) {
+        if (($data["targsubtype1"]  ?? null) !="") {
             $conditions[] = strval("targsubtype1=" . $data["targsubtype1"]);
         }
 
-        if (!is_null($data["targsubtype1_txt"] ?? null)) {
+        if (($data["targsubtype1_txt"]  ?? null) !="") {
             $conditions[] = strval("targsubtype1_txt='" . $data["targsubtype1_txt"] . "'");
         }
 
-        if (!is_null($data["corp1"] ?? null)) {
+        if (($data["corp1"]  ?? null) !="") {
             $conditions[] = strval("corp1='" . $data["corp1"] . "'");
         }
 
-        if (!is_null($data["target1"] ?? null)) {
+        if (($data["target1"]  ?? null) !="") {
             $conditions[] = strval("target1='" . $data["target1"] . "'");
         }
 
-        if (!is_null($data["natlty1"] ?? null)) {
+        if (($data["natlty1"]  ?? null) !="") {
             $conditions[] = strval("natlty1=" . $data["natlty1"]);
         }
 
-        if (!is_null($data["natlty1_txt"] ?? null)) {
+        if (($data["natlty1_txt"]  ?? null) !="") {
             $conditions[] = strval("natlty1_txt='" . $data["natlty1_txt"] . "'");
         }
 
-        if (!is_null($data["gname"] ?? null)) {
+        if (($data["gname"]  ?? null) !="") {
             $conditions[] = strval("gname='" . $data["gname"] . "'");
         }
 
-        if (!is_null($data["weaptype1"] ?? null)) {
+        if (($data["weaptype1"]  ?? null) !="") {
             $conditions[] = strval("weaptype1=" . $data["weaptype1"]);
         }
 
-        if (!is_null($data["weaptype1_txt"] ?? null)) {
+        if (($data["weaptype1_txt"]  ?? null) !="") {
             $conditions[] = strval("weaptype1_txt='" . $data["weaptype1_txt"] . "'");
         }
 
-        if (!is_null($data["weapsubtype1"] ?? null)) {
+        if (($data["weapsubtype1"]  ?? null) !="") {
             $conditions[] = strval("weapsubtype1=" . $data["weapsubtype1"]);
         }
 
-        if (!is_null($data["weapsubtype1_txt"] ?? null)) {
+        if (($data["weapsubtype1_txt"]  ?? null) !="") {
             $conditions[] = strval("weapsubtype1_txt='" . $data["weapsubtype1_txt"] . "'");
         }
 
-        if (!is_null($data["weapdetail"] ?? null)) {
+        if (($data["weapdetail"]  ?? null) !="") {
             $conditions[] = strval("weapdetail='" . $data["weapdetail"] . "'");
         }
 
-        if (!is_null($data["nkill"] ?? null)) {
+        if (($data["nkill"]  ?? null) !="") {
             $conditions[] = strval("nkill=" . $data["nkill"]);
         }
 
-        if (!is_null($data["nhostkid"] ?? null)) {
+        if (($data["nhostkid"]  ?? null) !="") {
             $conditions[] = strval("nhostkid=" . $data["nhostkid"]);
         }
 
-        if (!is_null($data["propextent"] ?? null)) {
+        if (($data["propextent"]  ?? null) !="") {
             $conditions[] = strval("propextent=" . $data["propextent"]);
         }
 
-        if (!is_null($data["propextent_txt"] ?? null)) {
+        if (($data["propextent_txt"]  ?? null) !="") {
             $conditions[] = strval("propextent_txt='" . $data["propextent_txt"] . "'");
         }
 
-        if (!is_null($data["ransom"] ?? null)) {
+        if (($data["ransom"]  ?? null) !="") {
             $conditions[] = strval("ransom=" . $data["ransom"]);
         }
 
-        if (!is_null($data["ransomamt"] ?? null)) {
+        if (($data["ransomamt"]  ?? null) !="") {
             $conditions[] = strval("ransomamt='" . $data["ransomamt"] . "'");
         }
 
-        if (!is_null($data["addnotes"] ?? null)) {
+        if (($data["addnotes"]  ?? null) !="") {
             $conditions[] = strval("addnotes='" . $data["addnotes"] . "'");
         }
 
-        if (!is_null($data["scite1"] ?? null)) {
+        if (($data["scite1"]  ?? null) !="") {
             $conditions[] = strval("scite1='" . $data["scite1"] . "'");
         }
 
-        if (!is_null($data["scite2"] ?? null)) {
+        if (($data["scite2"]  ?? null) !="") {
             $conditions[] = strval("scite2='" . $data["scite2"] . "'");
         }
 
-        if (!is_null($data["scite3"] ?? null)) {
+        if (($data["scite3"]  ?? null) !="") {
             $conditions[] = strval("scite3='" . $data["scite3"] . "'");
         }
 
@@ -679,7 +679,7 @@ class CRUDRecord
         if (count($conditions) > 0) {
             $sql = $query;
             $sql .= implode(',', $conditions);
-            $sql .= "WHERE eventid = " . strval($data["eventid"]);
+            $sql .= " WHERE eventid = " . strval($data["eventid"]);
         }
 
         if ($this->conexiune->query($sql) === TRUE) {

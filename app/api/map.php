@@ -13,6 +13,11 @@ function cautaDateMap($request)
     $response = $model->cautaDateMap($data);
 
     if ($response) {
+        //parse response
+        /*tara ca title
+        latitude cu floatval()
+        longitude cu floatval()
+        si color*/
         Response::responseCode(200);
         Response::content($response);
         exit;

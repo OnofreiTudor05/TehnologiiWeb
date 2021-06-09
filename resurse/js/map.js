@@ -16,9 +16,6 @@ let propextent_txt = document.getElementById("propextent_txt");
 let ransom = document.getElementById("ransom");
 let ransomamtin = document.getElementById("ransomamtin");
 let ransomamtsf = document.getElementById("ransomamtsf");
-let selecteazagr = document.getElementById("selecteazagr");
-let tipdategrafic = document.getElementById("tipdategrafic");
-let pageno = document.getElementById("pageno");
 let container = document.getElementById("container");
 let submitBtn = document.getElementById("search");
 
@@ -47,13 +44,10 @@ function onClick() {
     propextent_txt: propextent_txt.value,
     ransom: ransom.value,
     ransomamtin: ransomamtin.value,
-    ransomamtsf: ransomamtsf.value,
-    selecteazagr: selecteazagr.value,
-    tipdategrafic: tipdategrafic.value,
-    pageno: pageno.value
+    ransomamtsf: ransomamtsf.value
   };
 
-  var url = new URL("http://localhost/TehnologiiWeb/app/api/articol");
+  var url = new URL("http://localhost/TehnologiiWeb/app/api/map");
   url.search = new URLSearchParams(content).toString();
 
   fetch(url)
@@ -65,83 +59,19 @@ function onClick() {
         if (jsonResp.response.includes("no result")){container.textContent = "No results.";}
       }
       else {
-        var rest = 5 - jsonResp.length;
-        jsonResp.forEach(function (data) {
-          drawArticle(data);
-        });
-        for (var i = 0; i < rest; i++)
-          drawPadding();
-        drawImage();
+        drawMap();
       }
       submitBtn.removeAttribute("disabled");
       submitBtn.textContent = 'Search';
     }).catch(function (err) {
       console.log(err);
     });
-
-  //inca un fetch pt grafice
 }
 
-
-function drawArticle(data) {
-  var detalii = data['summary'].split(":");
-  if (detalii[0] == "") detalii[0] = "Unknown";
-  if (detalii[1] == null) detalii[1] = "Unknown";
-
-  var articol = document.createElement("article");
-  articol.setAttribute("class", "articol");
-
-  var dateCont = document.createElement("h4");
-  var descCont = document.createElement("h4");
-  var seeMoreCont = document.createElement("h4");
-
-  var date = document.createTextNode("Date: " + detalii[0]);
-  dateCont.appendChild(date);
-
-  var desc = document.createTextNode("Summary: " + detalii[1]);
-  descCont.appendChild(desc);
-
-  var seeMore = document.createElement("a");
-  seeMore.setAttribute("href", "seemore?eventid=" + data['eventid']);
-  seeMore.setAttribute("class", "butonSee");
-
-  var seeMoreText = document.createTextNode("See More");
-  seeMore.appendChild(seeMoreText);
-  seeMoreCont.appendChild(seeMore);
-
-
-  articol.appendChild(dateCont);
-  articol.appendChild(descCont);
-  articol.appendChild(seeMoreCont);
-
-  container.appendChild(articol);
-}
-
-function drawPadding() {
-  var emptyDiv = document.createElement("div");
-  container.appendChild(emptyDiv);
-}
-
-function drawImage() {
-  var figura = document.createElement("figure");
+function drawMap() {
   var img = document.createElement("img");
-  img.setAttribute("class", "grafic");
-  img.setAttribute("src", "../resurse/Poze/Grafic.png");
-  img.setAttribute("alt", "Grafic");
-  figura.appendChild(img);
-  container.appendChild(figura);
+  img.setAttribute("class", "map");
+  img.setAttribute("src", "../resurse/Poze/map.jpg");
+  img.setAttribute("alt", "Harta");
+  container.appendChild(img);
 }
-
-
-
-/*
-- manevra din map.php
-- sa facem ajax pt charts, map, exporturi(problema webp)(mai e treaba doar in statistics.js si map.js)
-- si protectii xss/sqli(escape javascript sau php)
-
-
-final:
-Pe pagina principala generam harta ca poza(optional)
-+documentatii, Scoatem console_log(verificam tot codul + comentarii + stilizari)
-
-*/

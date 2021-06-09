@@ -1,4 +1,4 @@
-#baralatime{
+#searchsummary{
 	font-size: 1vw;
     width:30vw;
 	margin-right: 1vw;
@@ -148,7 +148,7 @@ input[type=number], select{
 		font-size: 4vw;	
 	}
 
-	#baralatime[type="text"]{
+	#searchsummary[type="text"]{
 		font-size: 4vw;
 	}
 
@@ -168,7 +168,7 @@ input[type=number], select{
 		display: block;
 	}
 
-	#baralatime{
+	#searchsummary{
 		width: 100%;
 	}
 

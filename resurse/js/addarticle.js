@@ -66,7 +66,7 @@ function onSubmit() {
         city: city.value,
         latitude: parseFloat(latitude.value),
         longitude: parseFloat(longitude.value),
-        locatie: locatie.value,
+        location: locatie.value,
         summary: summary.value,
         success: parseInt(success.value),
         suicide: parseInt(suicide.value),

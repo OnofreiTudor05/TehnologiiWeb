@@ -58,7 +58,7 @@ function onClick() {
     })
     .then(function (jsonResp) {
       if (jsonResp.hasOwnProperty('response')) {
-        if (jsonResp.response.includes("no result"));//set emptyMsg
+        if (jsonResp.response.includes("no result")){container.textContent = "No results.";}
       }
       else {
         jsonResp.forEach(function (data) {
