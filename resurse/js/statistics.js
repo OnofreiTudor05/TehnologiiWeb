@@ -154,6 +154,7 @@ function drawArticle(data) {
 
 function drawPadding() {
     var emptyDiv = document.createElement("div");
+    emptyDiv.setAttribute("class","articolGol");
     container.appendChild(emptyDiv);
 }
 
