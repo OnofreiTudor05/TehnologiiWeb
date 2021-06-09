@@ -68,6 +68,8 @@ function onClick() {
       submitBtn.removeAttribute("disabled");
       submitBtn.textContent = 'Search';
     }).catch(function (err) {
+      submitBtn.removeAttribute("disabled");
+      submitBtn.textContent = 'Search';
       console.log(err);
     });
 }

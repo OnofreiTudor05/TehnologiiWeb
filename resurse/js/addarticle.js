@@ -149,6 +149,8 @@ function onSubmit() {
             submitBtn.removeAttribute("disabled");
             submitBtn.textContent = 'Add';
         }).catch(function (err) {
+            submitBtn.removeAttribute("disabled");
+            submitBtn.textContent = 'Add';
             console.log(err);
         })
 }

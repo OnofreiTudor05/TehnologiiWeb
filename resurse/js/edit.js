@@ -192,6 +192,8 @@ function onSubmit() {
             submitBtn.removeAttribute("disabled");
             submitBtn.textContent = 'Edit';
         }).catch(function (err) {
+            submitBtn.removeAttribute("disabled");
+            submitBtn.textContent = 'Edit';
             console.log(err);
         })
 }

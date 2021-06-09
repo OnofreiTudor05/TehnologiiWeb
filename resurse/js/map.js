@@ -56,22 +56,136 @@ function onClick() {
     })
     .then(function (jsonResp) {
       if (jsonResp.hasOwnProperty('response')) {
-        if (jsonResp.response.includes("no result")){container.textContent = "No results.";}
+        if (jsonResp.response.includes("Invalid")) { container.textContent = jsonResp.response; }
       }
       else {
-        drawMap();
+        drawMap(jsonResp);
       }
       submitBtn.removeAttribute("disabled");
       submitBtn.textContent = 'Search';
     }).catch(function (err) {
+      submitBtn.removeAttribute("disabled");
+      submitBtn.textContent = 'Search';
       console.log(err);
     });
 }
 
-function drawMap() {
-  var img = document.createElement("img");
-  img.setAttribute("class", "map");
-  img.setAttribute("src", "../resurse/Poze/map.jpg");
-  img.setAttribute("alt", "Harta");
-  container.appendChild(img);
+function drawMap(mapData) {
+  am4core.ready(function () {
+
+    am4core.useTheme(am4themes_animated);
+
+    var chart = am4core.create("container", am4maps.MapChart);
+
+    chart.geodata = am4geodata_worldLow;
+
+    chart.projection = new am4maps.projections.Miller();
+
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+    polygonSeries.exclude = ["AQ"];
+
+    polygonSeries.useGeodata = true;
+
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.polygon.fillOpacity = 0.6;
+
+
+    var hs = polygonTemplate.states.create("hover");
+    hs.properties.fill = chart.colors.getIndex(0);
+
+    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+    imageSeries.mapImages.template.tooltipText = "{title}";
+    imageSeries.mapImages.template.propertyFields.url = "url";
+
+    var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+    circle.radius = 1;
+    circle.propertyFields.fill = "color";
+    circle.nonScaling = true;
+
+    imageSeries.data = mapData;
+
+    chart.exporting.menu = new am4core.ExportMenu();
+    chart.exporting.menu.align = "left";
+    chart.exporting.menu.verticalAlign = "top";
+
+    chart.exporting.menu.items = [{
+      "label": "...",
+      "menu": [{
+        "type": "csv",
+        "label": "CSV"
+      },
+      {
+        "type": "svg",
+        "label": "SVG"
+      }
+      ]
+    }];
+
+    chart.exporting.menu.items[0].menu.push({
+      label: "WebP",
+      type: "custom",
+      options: {
+        callback: function () {
+          window.scrollTo(0, 0);
+          html2canvas(document.getElementById("container")).then(function (canvas) {
+            var imageWeb = canvas.toDataURL("image/webp", 0.9);
+            var a = document.createElement('a');
+            a.href = imageWeb;
+            a.download = 'image/webp';
+            a.click();
+          });
+        }
+      }
+    });
+
+    chart.exporting.menu.items[0].menu.push({
+      label: "CSV",
+      type: "custom",
+      options: {
+        callback: function () {
+          var date = mapData;
+          date.unshift({
+            'title': 'title',
+            'latitude': 'latitude',
+            'longitude': 'longitude',
+            'color': 'color'
+          });
+          var csvdata = convertToCSV(date);
+          var blob = new Blob([csvdata], {
+            type: 'text/csv;charset=utf-8;'
+          });
+          var url = URL.createObjectURL(blob);
+          var link = document.createElement("a");
+          link.setAttribute("href", url);
+          link.setAttribute("download", 'map.csv');
+          link.click();
+        }
+      }
+    });
+    chart.exporting.menu.items[0].icon = "../resurse/Poze/SaveIcon.png";
+  });
+
+
+}
+
+function convertToCSV(objArray) {
+  var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+  var str = '';
+
+  for (var i = 0; i < array.length; i++) {
+    var line = '';
+    for (var index in array[i]) {
+      if (line != '') line += ','
+
+      line += array[i][index];
+    }
+
+    str += line + '\r\n';
+  }
+
+  return str;
 }

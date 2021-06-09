@@ -4,6 +4,12 @@
 	margin-right: 1vw;
 }
 
+#container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
 #pagina {
 	display: grid;
 	grid-template-columns: 33% 67%;
