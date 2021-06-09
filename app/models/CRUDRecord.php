@@ -450,7 +450,7 @@ class CRUDRecord
 
         //daca nu avem conditii dar avem searchbar
         if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) != "") {
-            $sql = "SELECT country_txt, latitude, longitude FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' WHERE latitude !=0 AND longitude !=0";
+            $sql = "SELECT country_txt, latitude, longitude FROM terrorism WHERE summary LIKE '%" . $data["searchsummary"] . "%' AND latitude !=0 AND longitude !=0";
         }
         //daca nu avem nimic
         if (count($conditions) == 0 && ($data["searchsummary"]  ?? null) == "") {
