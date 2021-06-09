@@ -34,7 +34,6 @@
 
 .textphp{
     display: inline-block;
-    word-break: break-word;
 }
 
 @media screen and (max-width:1100px){

@@ -28,7 +28,10 @@
 }
 
 .completeaza{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
     text-align: center;
+    justify-content: center;
     margin-bottom: 2vw;
 }
 
