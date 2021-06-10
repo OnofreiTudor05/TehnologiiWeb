@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../resurse/Poze/icon.jpg">
+    <meta charset="utf-8">
+    <title>Ghid de utilizare</title>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1> Software Requirements Specification For TeW (Terrorism Web Visualizer) </h1>
+        </header>
+        <div role="contentinfo">
+            <section typeof="sa:AuthorsList">
+                <h2> Authors </h2>
+                <ul>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Cristin">
+                            <meta property="schema:additionalName" content="Marian">
+                            <meta property="schema:familyName" content="Blajut">
+                            <span property="schema:name"> Blajut Cristin-Marian </span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:blajut.cristin12@gmail.com"
+                                    property="schema:email">blajut.cristin12@gmail.com</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Tudor">
+                            <meta property="schema:additionalName" content="Cristian">
+                            <meta property="schema:familyName" content="Onofrei">
+                            <span property="schema:name"> Onofrei Tudor-Cristian </span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:onofrei.tudorcristian@gmail.com"
+                                    property="schema:email">onofrei.tudorcristian@gmail.com</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Dominic">
+                            <meta property="schema:additionalName" content="Eduard">
+                            <meta property="schema:familyName" content="Roca">
+                            <span property="schema:name"> Roca Dominic-Eduard </span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:rocadominic@gmail.com" property="schema:email">rocadominic@gmail.com</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section typeof="sa:Affiliations">
+                <h2>Affiliations</h2>
+                <ul>
+                    <li id="sa">
+                        <span typeof="schema:Organization" resource="https://uaic.ro/">
+                            <span property="schema:name">uaic.ro</span>,
+                            <span property="schema:parentOrganization">
+                                <span typeof="schema:Organization">
+                                    <span property="schema:name">Alexandru Ioan Cuza University</span>
+                                    —
+                                    <span property="schema:location" typeof="schema:Place">
+                                        <span property="schema:address" typeof="schema:PostalAddress">
+                                            <span property="schema:addressLocality">Iasi</span>,
+                                            <span property="schema:addressRegion">Iasi</span>,
+                                            <span property="schema:addressCountry">Romania</span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+
+        <section>
+            <h1>Table of Contents</h1>
+            <ul>
+                <li>
+                    <a href="#introduction"> 1. Introduction </a>
+                    <ul>
+                        <li> <a href="#generaldescription"> 1.1 General description </a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#user"> 2. User </a>
+                    <ul>
+                        <li> <a href="#statistics"> 2.1 Statistics </a> </li>
+                        <li> <a href="#map"> 2.2 Map </a> </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#administrator"> 3. Administrator </a>
+                    <ul>
+                        <li> <a href="#login"> 3.1 Login </a> </li>
+                        <li> <a href="#administration"> 3.2 Administration </a> </li>
+                        <li> <a href="#addarticle"> 3.3 Add article </a> </li>
+                        <li> <a href="#edit"> 3.4 Edit </a> </li>
+                        <li> <a href="#seemore"> 3.5 See more </a> </li>
+                        <li> <a href="#delete"> 3.6 Delete </a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h1 id="utilizator"> 1. Introduction </h1>
+            <section>
+                <h2 id="statistics"> 1.1 General description </h2>
+                <p>
+                    Terrorism Web Visualiser(TeW) is a tool designed to allow flexible visualisation of global terrorism
+                    related data.
+                    It contains approximately 180000 attacks from 1970 to 2017 around the world, a lot of details about
+                    the attacks and a short summary of the event.
+                </p>
+            </section>
+
+        </section>
+
+
+
+        <section>
+            <h1 id="user"> 2. User </h1>
+            <section>
+                <h2 id="statistics"> 2.1 Statistics </h2>
+                <p>
+                    Users can search for attacks using filters and the searchbar.
+                    Users can see the date and a short summary of the attack on the page, but they can press the button
+                    "See More" to visualise every aspect of that attack in the database. The selected attacks will be
+                    uset to create a chart
+                    (Pie, Bar or Line). The chart can be exported as CSV, SVG or WebP.
+                </p>
+            </section>
+            <section>
+                <h2 id="map"> 2.2 Map </h2>
+                <p>
+                    Users can search for attacks using filters and the searchbar.
+                    The selected attacks will displayed on the map. The map can be zoomed in and out.
+                    The map can be exported as CSV, SVG or WebP.
+                </p>
+            </section>
+
+        </section>
+
+
+        <section>
+            <h1 id="administrator"> 3. Administrator </h1>
+            <section>
+                <h2 id="login"> 3.1 Login </h2>
+                <p>
+                    Admins must introduce valid credentials in order to be redirected to administration page.
+                </p>
+            </section>
+            <section>
+                <h2 id="administration"> 3.2 Administration </h2>
+                <p>
+                    Admins can search attacks using filters in order to make searching easier.
+                    After finding an attack they can edit, delete or visualise it using the buttons at the button of the article.
+                </p>
+            </section>
+            <section>
+                <h2 id="addarticle"> 3.3 Add article </h2>
+                <p>
+                    Adding an article is done by pressing the "Add Article" button on the top of administration page.
+                    Admins will be redirected on another page.
+                    On the page it will be displayed inputs where the admin can insert data and the corresponding
+                    column.
+                </p>
+            </section>
+            <section>
+                <h2 id="edit"> 3.4 Edit </h2>
+                <p>
+                    Editing an attack is done by pressing the "Edit" button on the article. Admins will be redirected
+                    on another page.
+                    On the page it will be displayed the actual data about the attack, the corresponding column, and an
+                    input where the admin can insert the new data.
+                </p>
+            </section>
+            <section>
+                <h2 id="seemore"> 3.5 See more </h2>
+                <p>
+                    Visualising an attack is done by pressing the "See More" button on the article.
+                    Admins will be redirected on another page.
+                    On the page it will be displayed
+                    data about the attack.
+                </p>
+            </section>
+            <section>
+                <h2 id="delete"> 3.6 Delete </h2>
+                <p>
+                    Deleting an attack is done by pressing the "Delete" button on the article.
+                    Admins will be redirected on another page.
+                    On the page it will be displayed a message of whether or not the attack was succesfully deleted or
+                    not.
+                </p>
+            </section>
+
+        </section>
+
+
+</body>
+
+</html>
