@@ -5,6 +5,7 @@ require_once "../models/CRUDRecord.php";
 require_once "../models/ManagerConexiune.php";
 require_once "../models/admin.php";
 
+// functie cu care adaugam un atac in baza de date
 function adaugaRecord($request)
 {
     $model = new CRUDRecord();
@@ -21,6 +22,7 @@ function adaugaRecord($request)
     Response::content(['response' => 'invalid data']);
 }
 
+// functie cu care modificam un atac din baza de date folosind eventid-ul sau
 function updateRecord($request)
 {
     $model = new CRUDRecord();
@@ -40,7 +42,7 @@ function updateRecord($request)
     Response::content(['response' => 'invalid data']);
 }
 
-
+// functie cu care stergem un atac din baza de date folosind eventid-ul sau
 function stergeRecord($request)
 {
     $model = new CRUDRecord();
@@ -60,6 +62,7 @@ function stergeRecord($request)
     Response::content(['response' => 'invalid attack id']);
 }
 
+// functie pentru verificarea datelor de login ale adminului
 function login($request)
 {
     $model = new Admin();

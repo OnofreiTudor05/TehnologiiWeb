@@ -8,6 +8,7 @@ require_once "./map.php";
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
+// rutele, metodele, functiile si eventualele permisiuni necesare pentru a folosi un api
 $apiRoutes =  [
     [
         "method" => "DELETE",
@@ -77,6 +78,8 @@ if ($GLOBALS['goodRouteBadMethod'] === 1) {
 Response::responseCode(404);
 Response::content(['response' => 'invalid url']);
 
+
+// functie care prelucreaza un request la api
 function doRequest($route)
 {
     $url = $_SERVER['REQUEST_URI'];

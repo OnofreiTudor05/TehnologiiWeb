@@ -4,6 +4,7 @@ require_once "./response.php";
 require_once "../models/CRUDRecord.php";
 include_once "../models/ManagerConexiune.php";
 
+// functie care cauta un singur atac dupa eventid-ul sau
 function cautaDupaId($request)
 {
     $model = new CRUDRecord();
@@ -22,6 +23,7 @@ function cautaDupaId($request)
     Response::content(['response' => 'no results']);
 }
 
+// functie care cauta toate atacurile selectate
 function cautaRecord($request)
 {
     $model = new CRUDRecord();
@@ -40,6 +42,7 @@ function cautaRecord($request)
     Response::content(['response' => 'no results']);
 }
 
+// functie care cauta datele pentru generarea unui articol
 function cautaDateArticol($request)
 {
     $model = new CRUDRecord();

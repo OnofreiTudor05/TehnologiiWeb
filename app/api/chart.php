@@ -4,6 +4,7 @@ require_once "./response.php";
 require_once "../models/CRUDRecord.php";
 require_once "../models/ManagerConexiune.php";
 
+// functie care cauta tipul de grafic si datele cu care este generat
 function cautaDateGrafic($request)
 {
     $model = new CRUDRecord();

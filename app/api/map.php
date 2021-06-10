@@ -4,6 +4,7 @@ require_once "./response.php";
 require_once "../models/CRUDRecord.php";
 require_once "../models/ManagerConexiune.php";
 
+// functie care cauta datele pentru generarea hartii
 function cautaDateMap($request)
 {
     $model = new CRUDRecord();
