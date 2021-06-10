@@ -58,7 +58,7 @@ function onClick() {
         })
         .then(function(jsonResp) {
             if (jsonResp.hasOwnProperty('response')) {
-                if (jsonResp.response.includes("no result")) { container.textContent = "No results."; }
+                if (jsonResp.response.includes("no result")) { var divGol = document.createElement("div"); divGol.setAttribute("class", "textContainer"); divGol.textContent = "No results."; container.appendChild(divGol); }
             } else {
                 jsonResp.forEach(function(data) {
                     drawArticle(data);
