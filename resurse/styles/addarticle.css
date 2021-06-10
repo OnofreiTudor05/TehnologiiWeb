@@ -21,6 +21,14 @@
 	top:0.1vw;
 }
 
+
+#errorMsg{
+    font-size: 4vw;
+    font-weight: bold;
+    color: black;
+}
+
+
 #pagina{
     margin-top: 5vw;
     display: grid;
@@ -42,6 +50,13 @@
         font-size: 2vw;
     }
 
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+    
     #pagina{
         margin-top: 5vw;
         display: grid;
@@ -78,6 +93,14 @@
         font-size: 3vw;
     }
 
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+
+
     #pagina{
         margin-top: 5vw;
         display: grid;
@@ -113,6 +136,14 @@
     .completeaza {
         font-size: 4vw;
     }
+
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+
 
     #pagina{
         margin-top: 5vw;

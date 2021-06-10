@@ -21,6 +21,13 @@
 	top:0.1vw;
 }
 
+#errorMsg{
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    color: black;
+}
+
 #pagina{
     margin-top: 5vw;
     display: grid;
@@ -32,17 +39,41 @@
     margin-bottom: 2vw;
 }
 
+label {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
 .textphp{
+    font-size: 1vw;
+    color: black;
     display: block;
 }
 
 @media screen and (max-width:1100px){
+
+    label {
+        font-size: 3vw;
+    }
+
+    .textphp{
+        font-size: 3vw;
+    }
+    
 
     #pagina{
         margin-top: 5vw;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+
 
     .buton {
         background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
@@ -70,12 +101,27 @@
 }
 
 @media screen and (max-width:800px){
+    label {
+        font-size: 4vw;
+    }
 
+    .textphp{
+        font-size: 4vw;
+    }
+    
     #pagina{
         margin-top: 5vw;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+
 
     .buton {
         background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
@@ -103,6 +149,21 @@
 }
 
 @media screen and (max-width:550px){
+
+    label {
+        font-size: 5vw;
+    }
+
+    .textphp{
+        font-size: 5vw;
+    }
+    
+    #errorMsg{
+        font-size: 4vw;
+        font-weight: bold;
+        color: black;
+    }
+
 
     #pagina{
         margin-top: 5vw;
@@ -132,7 +193,6 @@
         position:relative;
         top:0.1vw;
     }
-
 }
 
 
