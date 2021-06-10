@@ -27,6 +27,12 @@
 	margin-top: 1vw;
 }
 
+.textContainer {
+	font-size: 2vw;
+	color: rgb(211, 144, 0);
+	font-weight: bold;
+}
+
 .butonSee {
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
 	background-color:#c62d1f;
@@ -51,7 +57,7 @@
 }
 
 #bara{
-    background-color: #663399;
+    background-color: #172747;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
@@ -64,10 +70,10 @@
 
 .Button {
 	box-shadow:inset 0vw 0.1vw 0vw 0vw #efdcfb;
-	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-	background-color:#dfbdfa;
+	background:linear-gradient(to bottom, #9e9a75 5%, #604439 100%);
+	background-color:#9e9a75;
 	border-radius:0.6vw;
-	border:0.1vw solid #c584f3;
+	border:0.1vw solid #41533b;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -76,11 +82,11 @@
 	font-weight:bold;
 	padding:0.3vw 1.2vw;
 	text-decoration:none;
-	text-shadow:0vw 0.1vw 0vw #9752cc;
+	text-shadow:0vw 0.1vw 0vw #41533b;
 }
 .Button:hover {
-	background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-	background-color:#bc80ea;
+	background:linear-gradient(to bottom, #604439 5%, #9e9a75 100%);
+	background-color:#41533b;
 }
 .Button:active {
 	position:relative;
@@ -114,13 +120,13 @@ input[type=number], select{
   .filters {
 	font-size: 1vw;
 	border-radius: 0.6vw;
-	background-color: #663399;
+	background-color: #1c222e;
 	padding: 2vw;
   }
   
   .filterlabel {
 	float: left;
-	color:#35e7ac;
+	color:#d2ca82;
 	font-family:Arial;
 	font-weight:bold;
 	width: 25%;
@@ -129,7 +135,7 @@ input[type=number], select{
   
   .filteritem {
 	float: left;
-	color:#35e7ac;
+	color:#41533b;
 	font-family:Arial;
 	font-weight:bold;
 	width: 75%;

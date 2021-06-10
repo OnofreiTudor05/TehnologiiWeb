@@ -1,3 +1,18 @@
+body {
+    background-position: center center;
+    background-image: url("../Poze/Camo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.textContainer {
+	font-size: 2vw;
+	color: rgb(211, 144, 0);
+	font-weight: bold;
+}
+
 #pagina {
     display: grid;
     grid-template-columns: 33% 67%;
@@ -103,13 +118,13 @@ input[type=number], select{
   .filters {
 	font-size: 1vw;
 	border-radius: 0.6vw;
-	background-color: #663399;
+	background-color: #a77b4e;
 	padding: 2vw;
   }
   
   .filterlabel {
 	float: left;
-	color:#35e7ac;
+	color:#f3dda0;
 	font-family:Arial;
 	font-weight:bold;
 	width: 25%;

@@ -12,6 +12,13 @@
     height: 100%;
 }
 
+.textContainer {
+	font-size: 2vw;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+}
+
+
 .articolGol {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -52,13 +59,13 @@
 .filters {
     font-size: 1vw;
     border-radius: 0.6vw;
-    background-color: #663399;
+    background-color: #34431c;
     padding: 2vw;
 }
 
 .filterlabel {
     float: left;
-    color: #35e7ac;
+    color: #9fb58a;
     font-family: Arial;
     font-weight: bold;
     width: 25%;
@@ -129,7 +136,7 @@
 }
 
 #bara {
-    background-color: #663399;
+    background-color: #34431c;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
@@ -142,10 +149,10 @@
 
 .Button {
     box-shadow: inset 0vw 0.1vw 0vw 0vw #efdcfb;
-    background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-    background-color: #dfbdfa;
+    background: linear-gradient(to bottom, #3b221b 5%, #87572f 100%);
+    background-color: #ada399;
     border-radius: 0.6vw;
-    border: 0.1vw solid #c584f3;
+    border: 0.1vw solid #87572f;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -154,12 +161,12 @@
     font-weight: bold;
     padding: 0.3vw 1.2vw;
     text-decoration: none;
-    text-shadow: 0vw 0.1vw 0vw #9752cc;
+    text-shadow: 0vw 0.1vw 0vw #87572f;
 }
 
 .Button:hover {
-    background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-    background-color: #bc80ea;
+    background: linear-gradient(to bottom, #87572f 5%, #3b221b 100%);
+    background-color: #87572f;
 }
 
 .Button:active {
