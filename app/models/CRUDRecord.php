@@ -6,7 +6,7 @@ class CRUDRecord
 
         $this->conexiune = ManagerConexiune::getConexiuneLaBD();
     }
-
+    // functie care primeste date si creaza query-ul pentru a introduce un atac in baza de date
     public function adaugaRecord($data)
     {
         $data = json_decode($data, true);
@@ -71,7 +71,8 @@ class CRUDRecord
             return false;
         }
     }
-
+    
+    // functie care primeste un eventid si cauta atacul corespunzator
     public function cautaDupaId($data)
     {
         $data = json_decode($data, true);
@@ -83,7 +84,8 @@ class CRUDRecord
 
         return mysqli_fetch_assoc($result);
     }
-
+    
+    // functie care primeste date si creaza query-ul pentru a cauta toate atacurile ce corespund filtrelor
     public function cautaRecord($data)
     {
         $data = json_decode($data, true);
@@ -184,7 +186,8 @@ class CRUDRecord
         $content = $result->fetch_all(MYSQLI_ASSOC);
         return $content;
     }
-
+    
+    // functie care primeste date si creaza query-ul pentru a obtine datele necesare generarii graficului
     public function cautaDateGrafic($data)
     {
         $data = json_decode($data, true);
@@ -361,6 +364,7 @@ class CRUDRecord
         }
     }
 
+    // functie care primeste date si creaza query-ul pentru a obtine datele necesare generarii hartii
     public function cautaDateMap($data)
     {
         $data = json_decode($data, true);
@@ -476,6 +480,7 @@ class CRUDRecord
         return $content;
     }
 
+    // functie care primeste date si creaza query-ul pentru a obtine datele necesare generarii sectiunii de articole
     public function cautaDateArticol($data)
     {
         $data = json_decode($data, true);
@@ -582,7 +587,7 @@ class CRUDRecord
         return $content;
     }
 
-
+    // functie care primeste date si creaza query-ul pentru a edita datele despre un atac
     public function updateRecord($data)
     {
         $data = json_decode($data, true);
@@ -769,6 +774,7 @@ class CRUDRecord
         }
     }
 
+    // functie care primeste eventid-ul si creaza query-ul pentru a sterge atacul corespunzator
     public function stergeRecord($data)
     {
         $data = json_decode($data, true);
