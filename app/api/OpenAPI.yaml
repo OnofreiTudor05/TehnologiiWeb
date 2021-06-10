@@ -1,0 +1,780 @@
+---
+swagger: "2.0"
+info:
+  description: Api For Web Technologies Project
+  version: 1.0.0
+  title: restTerro
+  contact:
+    email: rocadominic@gmail.com
+host: virtserver.swaggerhub.com
+basePath: /PROIECTTW/restTerro/1.0.0
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: users
+  description: Operations available to regular users
+schemes:
+- https
+paths:
+  /attack:
+    get:
+      tags:
+      - users
+      summary: gets all attacks, various filters available
+      description: |
+        By passing in the appropriate options, you can search for
+        available attacks
+      operationId: cautaRecord
+      produces:
+      - application/json
+      parameters:
+      - name: iyearin
+        in: query
+        description: minimum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: iyearsf
+        in: query
+        description: maximum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: country_txt
+        in: query
+        description: country of attacks
+        required: false
+        type: string
+      - name: region_txt
+        in: query
+        description: region of attacks
+        required: false
+        type: string
+      - name: provstate
+        in: query
+        description: province or state of attacks
+        required: false
+        type: string
+      - name: attacktype1_txt
+        in: query
+        description: attack type
+        required: false
+        type: string
+      - name: targtype1_txt
+        in: query
+        description: target type
+        required: false
+        type: string
+      - name: targsubtype1_txt
+        in: query
+        description: target subtype
+        required: false
+        type: string
+      - name: natlty1_txt
+        in: query
+        description: nationality
+        required: false
+        type: string
+      - name: weaptype1_txt
+        in: query
+        description: weapon type
+        required: false
+        type: string
+      - name: weapsubtype1_txt
+        in: query
+        description: weapon subtype
+        required: false
+        type: string
+      - name: nkillin
+        in: query
+        description: minimum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: nkillsf
+        in: query
+        description: maximum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: propextent_txt
+        in: query
+        description: damage
+        required: false
+        type: string
+      - name: ransom
+        in: query
+        description: did attacks have ransom?
+        required: false
+        type: string
+      - name: ransomamtin
+        in: query
+        description: minimum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: ransomamtsf
+        in: query
+        description: maximum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: searchsummary
+        in: query
+        description: summary of attack
+        required: false
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Attack'
+        "400":
+          description: bad input parameter
+    post:
+      tags:
+      - admins
+      summary: adds an attack
+      description: Adds an attack
+      operationId: adaugaRecord
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: attack
+        description: attack to add
+        required: false
+        schema:
+          $ref: '#/definitions/Attack'
+      responses:
+        "200":
+          description: attack created
+        "400":
+          description: invalid data
+  /attack/{eventid}:
+    get:
+      tags:
+      - users
+      summary: selects an attack by id
+      description: selects an attack by id
+      operationId: cautaDupaId
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: eventid
+        in: path
+        description: attack to select
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: selected attack
+          schema:
+            $ref: '#/definitions/Attack'
+        "400":
+          description: invalid data
+    put:
+      tags:
+      - admins
+      summary: updates an attack
+      description: Updates an attack
+      operationId: updateRecord
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: eventid
+        in: path
+        description: id to update
+        required: true
+        type: integer
+      - in: body
+        name: attack
+        description: information to update
+        required: false
+        schema:
+          $ref: '#/definitions/Attack'
+      responses:
+        "200":
+          description: attack updated
+        "400":
+          description: invalid data
+    delete:
+      tags:
+      - admins
+      summary: deletes an attack
+      description: deletes an attack
+      operationId: stergeRecord
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: eventid
+        in: path
+        description: attack to delete
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: attack updated
+        "400":
+          description: invalid data
+  /chart:
+    get:
+      tags:
+      - users
+      summary: gets attack data necessary for creating charts, various filters available
+      description: |
+        By passing in the appropriate options, you can get data for creating charts
+      operationId: cautaDateGrafic
+      produces:
+      - application/json
+      parameters:
+      - name: iyearin
+        in: query
+        description: minimum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: iyearsf
+        in: query
+        description: maximum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: country_txt
+        in: query
+        description: country of attacks
+        required: false
+        type: string
+      - name: region_txt
+        in: query
+        description: region of attacks
+        required: false
+        type: string
+      - name: provstate
+        in: query
+        description: province or state of attacks
+        required: false
+        type: string
+      - name: attacktype1_txt
+        in: query
+        description: attack type
+        required: false
+        type: string
+      - name: targtype1_txt
+        in: query
+        description: target type
+        required: false
+        type: string
+      - name: targsubtype1_txt
+        in: query
+        description: target subtype
+        required: false
+        type: string
+      - name: natlty1_txt
+        in: query
+        description: nationality
+        required: false
+        type: string
+      - name: weaptype1_txt
+        in: query
+        description: weapon type
+        required: false
+        type: string
+      - name: weapsubtype1_txt
+        in: query
+        description: weapon subtype
+        required: false
+        type: string
+      - name: nkillin
+        in: query
+        description: minimum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: nkillsf
+        in: query
+        description: maximum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: propextent_txt
+        in: query
+        description: damage
+        required: false
+        type: string
+      - name: ransom
+        in: query
+        description: did attacks have ransom?
+        required: false
+        type: string
+      - name: ransomamtin
+        in: query
+        description: minimum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: ransomamtsf
+        in: query
+        description: maximum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: searchsummary
+        in: query
+        description: summary of attack
+        required: false
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Attack'
+        "400":
+          description: bad input parameter
+  /map:
+    get:
+      tags:
+      - users
+      summary: gets attack data necessary for creating maps, various filters available
+      description: |
+        By passing in the appropriate options, you can get data for creating maps
+      operationId: cautaDateMap
+      produces:
+      - application/json
+      parameters:
+      - name: iyearin
+        in: query
+        description: minimum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: iyearsf
+        in: query
+        description: maximum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: country_txt
+        in: query
+        description: country of attacks
+        required: false
+        type: string
+      - name: region_txt
+        in: query
+        description: region of attacks
+        required: false
+        type: string
+      - name: provstate
+        in: query
+        description: province or state of attacks
+        required: false
+        type: string
+      - name: attacktype1_txt
+        in: query
+        description: attack type
+        required: false
+        type: string
+      - name: targtype1_txt
+        in: query
+        description: target type
+        required: false
+        type: string
+      - name: targsubtype1_txt
+        in: query
+        description: target subtype
+        required: false
+        type: string
+      - name: natlty1_txt
+        in: query
+        description: nationality
+        required: false
+        type: string
+      - name: weaptype1_txt
+        in: query
+        description: weapon type
+        required: false
+        type: string
+      - name: weapsubtype1_txt
+        in: query
+        description: weapon subtype
+        required: false
+        type: string
+      - name: nkillin
+        in: query
+        description: minimum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: nkillsf
+        in: query
+        description: maximum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: propextent_txt
+        in: query
+        description: damage
+        required: false
+        type: string
+      - name: ransom
+        in: query
+        description: did attacks have ransom?
+        required: false
+        type: string
+      - name: ransomamtin
+        in: query
+        description: minimum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: ransomamtsf
+        in: query
+        description: maximum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: searchsummary
+        in: query
+        description: summary of attack
+        required: false
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Attack'
+        "400":
+          description: bad input parameter
+  /articol:
+    get:
+      tags:
+      - users
+      summary: gets attack data necessary for creating articles, various filters available
+      description: |
+        By passing in the appropriate options, you can get data for creating articles
+      operationId: cautaDateArticol
+      produces:
+      - application/json
+      parameters:
+      - name: iyearin
+        in: query
+        description: minimum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: iyearsf
+        in: query
+        description: maximum year for attacks
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: country_txt
+        in: query
+        description: country of attacks
+        required: false
+        type: string
+      - name: region_txt
+        in: query
+        description: region of attacks
+        required: false
+        type: string
+      - name: provstate
+        in: query
+        description: province or state of attacks
+        required: false
+        type: string
+      - name: attacktype1_txt
+        in: query
+        description: attack type
+        required: false
+        type: string
+      - name: targtype1_txt
+        in: query
+        description: target type
+        required: false
+        type: string
+      - name: targsubtype1_txt
+        in: query
+        description: target subtype
+        required: false
+        type: string
+      - name: natlty1_txt
+        in: query
+        description: nationality
+        required: false
+        type: string
+      - name: weaptype1_txt
+        in: query
+        description: weapon type
+        required: false
+        type: string
+      - name: weapsubtype1_txt
+        in: query
+        description: weapon subtype
+        required: false
+        type: string
+      - name: nkillin
+        in: query
+        description: minimum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: nkillsf
+        in: query
+        description: maximum number of victims
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: propextent_txt
+        in: query
+        description: damage
+        required: false
+        type: string
+      - name: ransom
+        in: query
+        description: did attacks have ransom?
+        required: false
+        type: string
+      - name: ransomamtin
+        in: query
+        description: minimum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: ransomamtsf
+        in: query
+        description: maximum ransom ammount
+        required: false
+        type: integer
+        minimum: 0
+        format: int32
+      - name: searchsummary
+        in: query
+        description: summary of attack
+        required: false
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Attack'
+        "400":
+          description: bad input parameter
+  /login:
+    post:
+      tags:
+      - users
+      summary: attempt to log in as an admin user
+      description: |
+        By passing in the appropriate credentials, you can login as an admin user
+      operationId: login
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: logindata
+        description: credentials to use
+        required: false
+        schema:
+          $ref: '#/definitions/Logindata'
+      responses:
+        "200":
+          description: login successfully!
+        "400":
+          description: invalid login
+definitions:
+  Attack:
+    type: object
+    properties:
+      eventid:
+        type: integer
+        format: int32
+        example: "197000000001"
+      iyear:
+        type: integer
+        format: int32
+        example: 2012
+      imonth:
+        type: integer
+        format: int32
+        example: 7
+      iday:
+        type: integer
+        format: int32
+        example: 7
+      country:
+        type: integer
+        format: int32
+        example: 58
+      country_txt:
+        type: string
+        example: Romania
+      region:
+        type: integer
+        format: int32
+        example: 7
+      region_txt:
+        type: string
+        example: Eastern Europe
+      provstate:
+        type: string
+        example: Iasi
+      city:
+        type: string
+        example: Iasi
+      latitude:
+        type: number
+        example: -18.003
+      longitude:
+        type: number
+        example: 12.05
+      location:
+        type: string
+        example: Copou
+      summary:
+        type: string
+        example: exemplu
+      success:
+        type: boolean
+        example: false
+      suicide:
+        type: boolean
+        example: false
+      attacktype1:
+        type: integer
+        format: int32
+        example: 7
+      attacktype1_txt:
+        type: string
+        example: Assassination
+      targtype1:
+        type: integer
+        format: int32
+        example: 7
+      targtype1_txt:
+        type: string
+        example: Business related
+      targsubtype1:
+        type: integer
+        format: int32
+        example: 7
+      targsubtype1_txt:
+        type: string
+        example: CEO of Example
+      corp1:
+        type: string
+        example: President
+      target1:
+        type: string
+        example: Iulian
+      natlty1:
+        type: integer
+        format: int32
+        example: 7
+      natlty1_txt:
+        type: string
+        example: romanian
+      gname:
+        type: string
+        example: MANO-D
+      weaptype1:
+        type: integer
+        format: int32
+        example: 7
+      weaptype1_txt:
+        type: string
+        example: Explosive
+      weapsubtype1:
+        type: integer
+        format: int32
+        example: 7
+      weapsubtype1_txt:
+        type: string
+        example: Bomb
+      weapdetail:
+        type: string
+        example: Black bomb
+      nkill:
+        type: integer
+        format: int32
+        example: 7
+      nhostkid:
+        type: integer
+        format: int32
+        example: 7
+      propextent:
+        type: integer
+        format: int32
+        example: 7
+      propextent_txt:
+        type: string
+        example: Minor
+      ransom:
+        type: boolean
+        example: false
+      ransomamt:
+        type: integer
+        format: int32
+        example: 7
+      addnotes:
+        type: string
+        example: Example
+      scite1:
+        type: string
+        example: Example
+      scite2:
+        type: string
+        example: Example
+      scite3:
+        type: string
+        example: Example
+  Logindata:
+    type: object
+    properties:
+      username:
+        type: string
+        example: admin
+      password:
+        type: string
+        example: password
