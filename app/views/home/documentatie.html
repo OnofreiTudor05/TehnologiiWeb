@@ -39,7 +39,8 @@
             </span>
             <ul>
               <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                <a href="mailto:onofrei.tudorcristian@gmail.com" property="schema:email">onofrei.tudorcristian@gmail.com</a>
+                <a href="mailto:onofrei.tudorcristian@gmail.com"
+                  property="schema:email">onofrei.tudorcristian@gmail.com</a>
               </li>
             </ul>
           </li>
@@ -123,7 +124,50 @@
         </li>
 
         <li>
-          <a href="#contribution"> 5. Contributions </a>
+          <a href="#development"> 5. Development </a>
+          <ul>
+            <li> <a href="#views"> 5.1 Views </a> </li>
+            <li> <a href="#mvc"> 5.2 MVC </a> </li>
+            <li> <a href="#crud_record"> 5.3 CRUD Record </a> </li>
+            <li> <a href="#charts_and_map"> 5.4 Charts and Map </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#information_share"> 6. Information Share </a>
+          <ul>
+            <li> <a href="#github"> 6.1 GitHub </a> </li>
+            <li> <a href="#discord"> 6.2 Discord </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#architecture_representation"> 7. Architecture Representation </a>
+          <ul>
+            <li> <a href="#uml_diagram"> 7.1 UML Diagram </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#multimedia_content"> 8. Multimedia Content </a>
+          <ul>
+            <li> <a href="#youtube"> 8.1 Youtube </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#data_sources"> 9. Data Sources </a>
+          <ul>
+            <li> <a href="#global_terrorism_database"> 9.1 Global Terrorism Database </a> </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#contributions"> 10. Contributions </a>
+          <ul>
+            <li> <a href="#frontend_contributions"> 10.1 Frontend Contributions </a> </li>
+            <li> <a href="#backend_contributions"> 10.2 Backend Contributions </a> </li>
+          </ul>
         </li>
 
       </ul>
@@ -181,8 +225,8 @@
         <h2 id="user_interfaces"> 3.1 User Interfaces </h2>
 
         <figure typeof="sa:image">
-          <img src="../resurse/Poze/PozeDocumentatie/index.png" alt="Admin image">
-          <figcaption> Index page </figcaption>
+          <img src="../resurse/Poze/PozeDocumentatie/home.png" alt="Admin image">
+          <figcaption> Home page </figcaption>
         </figure>
         <figure typeof="sa:image">
           <img src="../resurse/Poze/PozeDocumentatie/admin.png" alt="Admin image">
@@ -352,18 +396,115 @@
     </section>
 
     <section>
-      <h1 id="contributions"> Contributions </h1>
-      <ul>
-        <li> admin.html + admin.css: Onofrei Tudor-Cristian 2A3 </li>
-        <li> administration.html + administration.css: Onofrei Tudor-Cristian 2A3, Roca Dominic-Eduard 2A3 (filtre)
-        </li>
-        <li> contact.html + contact.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
-        <li> index.html + index.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
-        <li> map.html + map.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Roca Dominic-Eduard 2A3 </li>
-        <li> statistics.html + statistics.css: Roca Dominic-Eduard 2A3 (filtre), Blajut Cristin-Marian 2A3(articole)
-        </li>
-      </ul>
+      <h1 id="development"> 5. Development </h1>
+      <section>
+        <h2 id="views"> 5.1 Views </h2>
+        <p>
+          We create the frontend pages which are stored in views. We made them responsive and we validate them using W3C
+          Validator.
+          The correspounding CSS is stored in "resurse".
+        </p>
+      </section>
+      <section>
+        <h2 id="mvc"> 5.2 MVC </h2>
+        <p>
+          We separate views, controllers and models to make our application implement the MVC architecture.
+        </p>
+      </section>
+      <section>
+        <h2 id="crud_record"> 5.3 CRUD Record </h2>
+        <p> In CRUD Record we have multiple functions responsable with adding, deleting, editing, and searching for
+          attacks in database.
+          Those data will be used for creating the articles, charts and generate the attacks on the map.
+          We send a query to the database do to this.
+        </p>
+      </section>
+      <section>
+        <h2 id="charts_and_map"> 5.4 Charts and Map </h2>
+        <p> For charts and map we used amcharts4. We sent data using functions in CRUD Record to javascript files stored
+          in
+          "resurse".
+        </p>
+      </section>
     </section>
+
+    <section>
+      <h1 id="information_share"> 6. Information Share </h1>
+      <section>
+        <h2 id="github"> 6.1 GitHub </h2>
+        <p>
+          We used GitHub to store the project and share informations between us. We have around 100 commits.
+        </p>
+      </section>
+      <section>
+        <h2 id="discord"> 6.2 Discord </h2>
+        <p>
+          We used Discord to talk about the stages of the projects.
+          We used sharescreen for pair-programming when it was necesarry.
+        </p>
+      </section>
+
+    </section>
+
+    <section>
+      <h1 id="architecture_representation"> 7. Architecture Representation </h1>
+      <section>
+        <h2 id="uml_diagram"> 7.1 UML Diagram </h2>
+        <figure typeof="sa:image">
+          <img src="../resurse/Poze/PozeDocumentatie/uml.png" alt="UML image" style="width: 95%">
+          <figcaption> UML Diagram of the aplication </figcaption>
+        </figure>
+      </section>
+    </section>
+
+    <section>
+      <h1 id="multimedia_content"> 8. Multimedia Content </h1>
+      <section>
+        <h2 id="youtube"> 8.1 Youtube </h2>
+        <p>
+          A tour of our website can be found at: <a href="https://youtu.be/R1i5H2S2B38"> https://youtu.be/R1i5H2S2B38 </a>
+        </p>
+      </section>
+    </section>
+
+
+    <section>
+      <h1 id="data_sources"> 9. Data Sources </h1>
+      <section>
+        <h2 id="global_terrorism_database"> 9.1 Global Terrorism Database </h2>
+        <p>
+          We used the database available at the following link:
+          <a href="https://www.kaggle.com/START-UMD/gtd">
+            https://www.kaggle.com/START-UMD/gtd
+          </a>
+        </p>
+      </section>
+    </section>
+
+    <section>
+      <h1 id="contributions"> 10. Contributions </h1>
+      <section>
+        <h2 id="frontend_contributions"> 10.1 Frontend Contributions </h2>
+        <ul>
+          <li> admin.html + admin.css: Onofrei Tudor-Cristian 2A3 </li>
+          <li> administration.html + administration.css: Onofrei Tudor-Cristian 2A3, Roca Dominic-Eduard 2A3 (filtre)
+          </li>
+          <li> contact.html + contact.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
+          <li> home.html + home.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Blajut Cristin-Marian 2A3 </li>
+          <li> map.html + map.css: Onofrei Tudor-Cristian 2A3 (responsiveness), Roca Dominic-Eduard 2A3 </li>
+          <li> statistics.html + statistics.css: Roca Dominic-Eduard 2A3 (filtre), Blajut Cristin-Marian 2A3(articole)
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="backend_contributions"> 10.2 Backend Contributions </h2>
+        <ul>
+          <li> </li>
+        </ul>
+      </section>
+    </section>
+
+
   </article>
 </body>
 
