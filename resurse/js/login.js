@@ -5,6 +5,7 @@ let errorMsg = document.getElementById("errorMsg");
 
 submitBtn.addEventListener("click", onClick);
 
+// functie care face fetch cu datele de login trimise si le verifica
 function onClick() {
     submitBtn.setAttribute("disabled", true);
 

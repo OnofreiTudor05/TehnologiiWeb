@@ -7,6 +7,8 @@ var queryid = url.searchParams.get("eventid");
 let errorMsg = document.getElementById("errorMsg");
 if (queryid == null) errorMsg.textContent = "No id provided"
 
+// functie care face fetch cu eventid-ul si sterge articolul din baza de date
+
 fetch("../app/api/attack/" + queryid, {method: "DELETE"})
     .then(function (resp) {
        return resp.json();

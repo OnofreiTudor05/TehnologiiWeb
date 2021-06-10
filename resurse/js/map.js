@@ -20,7 +20,7 @@ let container = document.getElementById("container");
 let submitBtn = document.getElementById("search");
 
 submitBtn.addEventListener("click", onClick);
-
+// functie ce face fetch cu datele din filtre pentru a primi atacurile ce vor fi puse pe harta
 function onClick() {
   container.innerHTML = "";
 
@@ -70,6 +70,7 @@ function onClick() {
     });
 }
 
+// functie care afiseaza atacurile pe harta si creaza meniul cu tipurile de exportare a datelor
 function drawMap(mapData) {
   am4core.ready(function () {
 
@@ -172,6 +173,7 @@ function drawMap(mapData) {
 
 }
 
+// functie de conversie a datelor in format CSV
 function convertToCSV(objArray) {
   var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
   var str = '';

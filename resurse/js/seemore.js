@@ -50,6 +50,7 @@ let scite1 = document.getElementById("scite1");
 let scite2 = document.getElementById("scite2");
 let scite3 = document.getElementById("scite3");
 
+// functie in care se face fetch la datele din baza de date folosind eventid-ul atacului
 
 fetch("../app/api/attack/" + queryid)
     .then(function (resp) {

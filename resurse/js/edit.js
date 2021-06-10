@@ -95,6 +95,8 @@ let scite3actual = document.getElementById("scite3actual");
 let submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", onSubmit);
 
+
+// functie care face fetch cu datele care vor fi inlocuite 
 function onSubmit() {
     submitBtn.setAttribute("disabled", true);
 
@@ -198,7 +200,7 @@ function onSubmit() {
         })
 }
 
-
+// ia datele actuale si le afiseaza
 fetch("../app/api/attack/" + queryid)
     .then(function (resp) {
         return resp.json();

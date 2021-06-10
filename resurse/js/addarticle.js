@@ -50,6 +50,7 @@ submitBtn.addEventListener("click", onSubmit);
 
 let errorMsg = document.getElementById("errorMsg");
 
+// fetch pentru adugarea in baza de date a articolelor
 function onSubmit() {
     submitBtn.setAttribute("disabled", true);
 

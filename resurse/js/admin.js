@@ -21,7 +21,7 @@ let container = document.getElementById("container");
 let submitBtn = document.getElementById("search");
 
 submitBtn.addEventListener("click", onClick);
-
+// functie care face fetch la datele pentru articole
 function onClick() {
     container.innerHTML = "";
 
@@ -73,6 +73,7 @@ function onClick() {
         });
 }
 
+// functie care creaza spatiul pentru articol si introduce datele 
 
 function drawArticle(data) {
     var detalii = data['summary'].split(":");

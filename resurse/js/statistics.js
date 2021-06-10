@@ -24,6 +24,7 @@ let submitBtn = document.getElementById("search");
 
 submitBtn.addEventListener("click", onClick);
 
+// functie care face fetch cu datele trimise pentru a crea graficele si articolele din pagina
 function onClick() {
     container.innerHTML = "";
 
@@ -122,7 +123,7 @@ function onClick() {
 
 }
 
-
+// functie care creaza spatiul pentru articol si introduce datele 
 function drawArticle(data) {
     var detalii = data['summary'].split(":");
     if (detalii[0] == "") detalii[0] = "Unknown";
@@ -157,12 +158,14 @@ function drawArticle(data) {
     container.appendChild(articol);
 }
 
+// functie ce genereaza div-uri goale pentru a ocupa spatiul liber din grid
 function drawPadding() {
     var emptyDiv = document.createElement("div");
     emptyDiv.setAttribute("class", "articolGol");
     container.appendChild(emptyDiv);
 }
 
+// functie ce deseneaza graficul "Line" in functie de datele primite
 function drawLine(data) {
     var wrapper = document.createElement("div");
     wrapper.setAttribute("id", "chartdiv");
@@ -231,6 +234,7 @@ function drawLine(data) {
     });
 }
 
+// functie ce deseneaza graficul "Bar" in functie de datele primite
 function drawBar(data) {
     var wrapper = document.createElement("div");
     wrapper.setAttribute("id", "chartdiv");
@@ -308,6 +312,7 @@ function drawBar(data) {
     });
 }
 
+// functie ce deseneaza graficul "Pie" in functie de datele primite
 function drawPie(data) {
     var wrapper = document.createElement("div");
     wrapper.setAttribute("id", "chartdiv");
