@@ -100,10 +100,10 @@ function onSubmit() {
     };
 
     fetch("../app/api/attack", { method: "POST", body: JSON.stringify(content) })
-        .then(function (resp) {
+        .then(function(resp) {
             return resp.json();
         })
-        .then(function (jsonResp) {
+        .then(function(jsonResp) {
             errorMsg.textContent = jsonResp.response;
             eventid.value = "";
             iyear.value = "";
@@ -149,7 +149,7 @@ function onSubmit() {
             scite3.value = "";
             submitBtn.removeAttribute("disabled");
             submitBtn.textContent = 'Add';
-        }).catch(function (err) {
+        }).catch(function(err) {
             submitBtn.removeAttribute("disabled");
             submitBtn.textContent = 'Add';
             console.log(err);
