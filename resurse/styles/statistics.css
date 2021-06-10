@@ -136,7 +136,7 @@
 }
 
 #bara {
-    background-color: #34431c;
+    background-color: #3d5a0e;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
@@ -243,4 +243,7 @@ label {
     .search {
         padding-bottom: 4vw;
     }
+    .textContainer {
+		font-size: 4vw;
+	}
 }

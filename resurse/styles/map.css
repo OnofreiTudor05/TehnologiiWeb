@@ -29,7 +29,7 @@
 
 .textContainer {
 	font-size: 2vw;
-	color: rgb(211, 144, 0);
+	color: rgb(255, 255, 0);
 	font-weight: bold;
 }
 
@@ -198,4 +198,7 @@ input[type=number], select{
 		width: 99%;
 	}
 
+	.textContainer {
+		font-size: 4vw;
+	}
 }
